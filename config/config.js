@@ -13,7 +13,7 @@ var notifier = {
 	};
 module.exports = {	//self creates db
 		development: {
-			db: 'mongodb://localhost/newmongo', //set url for the db
+			db: 'mongodb://localhost/expresso', //set url for the db
 			root: rootPath,
 			notifier: notifier,
 			app: {
@@ -21,7 +21,7 @@ module.exports = {	//self creates db
 			}
 		},
 		test: {
-			db: 'mongodb://localhost/newmongo', 
+			db: 'mongodb://localhost/expresso', 
 			root: rootPath,
 			notifier: notifier,
 			app:{
