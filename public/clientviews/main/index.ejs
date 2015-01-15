@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<title><%= title %></title>
+	 	<!-- load external script -->			
+		<script src="/socket.io/socket.io.js"></script>
+		<script type="text/javascript" src="./js/external/angular.min.js">
+		</script>
+		<script type="text/javascript" src="./js/external/jquery.min.js">
+		</script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js">
+		</script>		
+	 	<!-- stylesheets -->		
+		<link rel="stylesheet" type="text/css" href="./css/gridsys.css">
+		<link rel="stylesheet" type="text/css" href="./css/style.css">
+		<!-- angular app, model, and controllers -->
+		<script type="text/javascript" src="./js/app.js">
+		</script>
+		<script type="text/javascript" src="./js/factories/model.js"></script>
+		<script type="text/javascript" src="./js/controllers/controller.js"></script>
+	 <!-- io script -->
+    <script type="text/javascript">
+		io = io.connect();
+		io.emit('client_sent', {msg: 'Client has emitted.'});
+		io.on('server_sent', function(received){
+			console.log(received);
+		});
+    </script>
+	 <!-- jquery script -->
+	<script type="text/javascript">
+		$( document ).ready(function(){
+	 		console.log('Jquery is ready.');
+	    });
+	    $( "#blank" ).ready(function(){
+	 		console.log('Partial is ready.');
+	    });
+	    function loaded(){
+	    	console.log('onload works!');
+	    };
+	</script>
+	</head>
+	<body onload="loaded()">
+		<h1><%= title %></h1>
+		<div id='app' ng-app='App'>
+			<div class='links'>
+				<a href="#/parta">Orders</a> | <a href="#/partb">Customers</a>
+			</div>
+			<div ng-view=""></div>
+	</body>
+</html>
