@@ -10,7 +10,7 @@
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js">
 		</script>		
 	 	<!-- stylesheets -->		
-		<link rel="stylesheet" type="text/css" href="./css/gridsys.css">
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="./css/style.css">
 		<!-- angular app, model, and controllers -->
 		<script type="text/javascript" src="./js/app.js">
@@ -30,20 +30,19 @@
 		$( document ).ready(function(){
 	 		console.log('Jquery is ready.');
 	    });
-	    $( "#blank" ).ready(function(){
-	 		console.log('Partial is ready.');
-	    });
-	    function loaded(){
-	    	console.log('onload works!');
-	    };
 	</script>
 	</head>
-	<body onload="loaded()">
+	<body>
 		<h1><%= title %></h1>
-		<div id='app' ng-app='App'>
-			<div class='links'>
-				<a href="#/parta">Orders</a> | <a href="#/partb">Customers</a>
+		<div class='container' id='app' ng-app='App'>
+			<div class='row'>
+				<div class='col-md-offset-2 col-md-8'>
+					<div class='links'>
+						<a href="#/parta">Initial Partial</a> | <a href="#/partb">Another Partial</a>
+					</div>
+					<div ng-view=""></div>
+				</div>
 			</div>
-			<div ng-view=""></div>
+		</div>
 	</body>
 </html>

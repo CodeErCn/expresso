@@ -7,10 +7,6 @@ module.exports = function Routes(app){
     app.io.on('connection', function(req){
         console.log('A user has connected.');
     });
-    //keep track of partials
-    app.io.on('partial_sent', function(req){
-        console.log('Partial has been clicked.');
-    });
     //keep track of disconnect
     app.io.route('disconnect', function(req){
         console.log('A user has disconnected.');
