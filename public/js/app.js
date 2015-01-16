@@ -5,15 +5,39 @@ App.config(function($routeProvider){
 	$routeProvider
 		.when('/',
 		{
-			templateUrl: '/clientviews/partials/part.html'
+			templateUrl: '/clientviews/partials/loginregister.html'
 		})
-		.when('/part',
+		.when('/login',
 		{
-			templateUrl: '/clientviews/partials/part.html'
+			templateUrl: '/clientviews/partials/login.html'
 		})
-		.when('/partb',
+		.when('/gender',
 		{
-			templateUrl: '/clientviews/partials/partb.html'
+			templateUrl: '/clientviews/partials/gender.html'
+		})
+		.when('/seeking',
+		{
+			templateUrl: '/clientviews/partials/seeking.html'
+		})
+		.when('/interest',
+		{
+			templateUrl: '/clientviews/partials/interest.html'
+		})
+		.when('/birthday',
+		{
+			templateUrl: '/clientviews/partials/birthday.html'
+		})
+		.when('/main',
+		{
+			templateUrl: '/clientviews/partials/main.html'
+		})
+		.when('/edit',
+		{
+			templateUrl: '/clientviews/partials/edit.html'
+		})
+		.when('/browse',
+		{
+			templateUrl: '/clientviews/partials/browse.html'
 		})
 		.otherwise({
 			redirectTo: '/'
