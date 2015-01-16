@@ -3,9 +3,11 @@
 	<title>main</title>
 </head>
 <body>
-	<div id='main' class='container' ng-controller='appController'>
-	<a href="#/browse">Meet Your Compatibles</a> | <a href="#/logoff">Log Off</a>	
+	<div id='main' class='container' ng-controller='appController'>	
 		<!--Header-->
+		<div class='row text-right'>
+			<a href="#/browse">Meet Your Compatibles</a> | <a href="#/logoff">Log Off</a>
+		</div>
 		<div class='row'>
 			<h1>Welcome, {{ user.name }}</h1>
 		</div>
