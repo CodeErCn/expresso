@@ -2,7 +2,8 @@
 	<head>
 		<title><%= title %></title>
 	 	<!-- load external script -->			
-		<script src="/socket.io/socket.io.js"></script>
+		<script src="/socket.io/socket.io.js">
+		</script>
 		<script type="text/javascript" src="./js/external/angular.min.js">
 		</script>
 		<script type="text/javascript" src="./js/external/jquery.min.js">
@@ -15,8 +16,10 @@
 		<!-- angular app, model, and controllers -->
 		<script type="text/javascript" src="./js/app.js">
 		</script>
-		<script type="text/javascript" src="./js/factories/model.js"></script>
-		<script type="text/javascript" src="./js/controllers/controller.js"></script>
+		<script type="text/javascript" src="./js/factories/model.js">
+		</script>
+		<script type="text/javascript" src="./js/controllers/controller.js">
+		</script>
 	 <!-- io script -->
     <script type="text/javascript">
 		io = io.connect();
