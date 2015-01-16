@@ -1,47 +1,56 @@
 <html>
 <head>
-	<title>main</title>
+	<title>User Dashboard</title>
 </head>
 <body>
-	<div id='main' class='container' ng-controller='appController'>	
-		<!--Header-->
-		<div class='row text-right'>
-			<a href="#/browse">Meet Your Compatibles</a> | <a href="#/logoff">Log Off</a>
-		</div>
-		<div class='row'>
-			<h1>Welcome, {{ user.name }}</h1>
-		</div>
-		<!--Side Bar-->
-		<div class="col-md-4">
-		<h3>User Info</h3>
-		<img src="http://johnjournal.bravesites.com/files/images/Profile_Score_Photo.jpg" alt="{{ user.name }}" class="img-rounded img-responsive">
-		<form>
-			<div class="radio">
-			<h5>Your Gender</h5>
-				<label><input type="radio" name="user_gender" value="male">Male</label>
-				<label><input type="radio" name="user_gender" value="female">Female</label>
-			</div>
-			<div class="radio">
-			<h5>Seeking</h5>
-				<label><input type="radio" name="user_seeking" value="male">Male</label>
-				<label><input type="radio" name="user_seeking" value="female">Female</label>
-			</div>
-			<div class="form-group">
-			<h5>Your Picture</h5>
-				<input type="file" id="exampleInputFile">
-			<p class="help-block">Upload a photo that describes you.</p>
-			</div>
-			<button type="submit" class="btn btn-default btn-primary">Edit Your Info</button>
-		</form>	
-		</div>
-		<!--Main Content-->
-		<div class="col-md-8">
-		<h3>Your Interests</h3>
-		<ul class="nav nav-pills nav-stacked">
-			<li>Interest</li>
-			<li>Like</li>
-		</ul>
-		</div>
+<div id='main' class='container' ng-controller='appController'>	
+	<!--Header-->
+	<div class='row text-right'>
+		<a href="#/browse">Meet Your Compatibles</a> | <a href="#/logoff">Log Off</a>
 	</div>
+	<!--Chat Bar /sync with browse.html-->
+	<div class='row'>
+		<p>
+		  	<button type="button" class="btn btn btn-success navbar-btn btn-lg">Hottie 1 <span class="caret"></span></button>
+		  	<button type="button" class="btn btn btn-success navbar-btn btn-lg">Hottie 2 <span class="caret"></span></button>
+		  	<button type="button" class="btn btn btn-success navbar-btn btn-lg">Hottie 3 <span class="caret"></span></button>
+		</p>
+	</div>
+	<!--Title Bar-->
+	<div class='row'>
+		<h1>Welcome, {{ user.name }}</h1>
+	</div>
+	<!--Side Bar-->
+	<div class="col-md-4">
+	<h3>My Info</h3>
+	<img src="http://johnjournal.bravesites.com/files/images/Profile_Score_Photo.jpg" alt="{{ user.name }}" class="img-rounded img-responsive">
+	<form>
+		<div class="radio">
+		<h5>My Gender</h5>
+			<label><input type="radio" name="user_gender" value="male">Male</label>
+			<label><input type="radio" name="user_gender" value="female">Female</label>
+		</div>
+		<div class="radio">
+		<h5>I'm Seeking</h5>
+			<label><input type="radio" name="user_seeking" value="male">Male</label>
+			<label><input type="radio" name="user_seeking" value="female">Female</label>
+		</div>
+		<div class="form-group">
+		<h5>My Icon</h5>
+			<input type="file" id="exampleInputFile">
+		<p class="help-block">Upload a photo that describes you.</p>
+		</div>
+		<button type="submit" class="btn btn-primary">Edit Your Info</button>
+	</form>	
+	</div>
+	<!--Main Content-->
+	<div class="col-md-8">
+	<h3>My Interests</h3>
+	<ul class="nav nav-pills nav-stacked">
+		<li>Interest</li>
+		<li>Like</li>
+	</ul>
+	</div>
+</div>
 </body>
 </html>
