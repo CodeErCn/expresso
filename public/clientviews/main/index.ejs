@@ -1,4 +1,55 @@
 <html>
+<<<<<<< HEAD
+	<head>
+		<title><%= title %></title>
+	 	<!-- load external script -->			
+		<script src="/socket.io/socket.io.js"></script>
+		<script type="text/javascript" src="./js/external/angular.min.js">
+		</script>
+		<script type="text/javascript" src="./js/external/jquery.min.js">
+		</script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js">
+		</script>
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	 	<!-- stylesheets -->		
+		<link rel="stylesheet" type="text/css" href="./css/style.css">
+		<!-- angular app, model, and controllers -->
+		<script type="text/javascript" src="./js/app.js">
+		</script>
+		<script type="text/javascript" src="./js/factories/model.js"></script>
+		<script type="text/javascript" src="./js/controllers/controller.js"></script>
+	 <!-- io script -->
+    <script type="text/javascript">
+		io = io.connect();
+		io.emit('client_sent', {msg: 'Client has emitted.'});
+		io.on('server_sent', function(received){
+			console.log(received);
+		});
+    </script>
+	 <!-- jquery script -->
+	<script type="text/javascript">
+		$( document ).ready(function(){
+	 		console.log('Jquery is ready.');
+	 	})
+	</script>
+	</head>
+	<body>
+		<div class="container" id="app" ng-app="App">
+			<div class="row">
+				<h1 class="col-md-4"><%= title %></h1>
+				<div class="links col-md-3 col-md-offset-4">
+					<a href="#/login">Login</a> | <a href="#/">Register</a>
+				</div>
+			</div>
+		
+			<div ng-view=""></div>
+		</div>
+=======
 <head>
 	<title><%= title %></title>
  	<!-- load external script -->			
@@ -43,5 +94,6 @@
 	</div>
 	<div ng-view=""></div>
 	</div>
+>>>>>>> e43d5b2b1abb6b15707606b35cc3725af7f23847
 	</body>
 </html>
