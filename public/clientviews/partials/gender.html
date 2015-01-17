@@ -1,10 +1,29 @@
-<html>
-<head>
-	<title>Gender</title>
-</head>
-<body>
-	<div id='gender' class='container' ng-controller='appController'>
-		<h1>Gender</h1>
-	</div>
-</body>
-</html>
+<div class="container">
+    <div class="row">
+      <h1 class="col-md-11 col-md-offset-1">Dating Site for gamers <small>by gamers</small></h1>
+      <h4 class="col-md-11 col-md-offset-1">Step 1.</h4>
+      <div class="col-md-8 col-md-offset-1">
+         <div class="panel panel-info">
+          <div class="panel-heading">
+            <h1 class="panel-title">Gender</h1>
+          </div>
+          <div class="panel-body">
+            Please specify your gender:
+            <div class="radio">
+              <label>
+                <input type="radio" name="gender" value="male">
+                male
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="gender" value="female">
+                female
+              </label>
+            </div>
+          </div>
+        </div> 
+        <a class="btn btn-info btn-block" href="#/seeking" role="button">next</a>
+      </div>
+    </div>
+</div>

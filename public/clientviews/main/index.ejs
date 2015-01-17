@@ -8,9 +8,14 @@
 		<script type="text/javascript" src="./js/external/jquery.min.js">
 		</script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js">
-		</script>		
+		</script>
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 	 	<!-- stylesheets -->		
-		<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="./css/style.css">
 		<!-- angular app, model, and controllers -->
 		<script type="text/javascript" src="./js/app.js">
@@ -29,16 +34,19 @@
 	<script type="text/javascript">
 		$( document ).ready(function(){
 	 		console.log('Jquery is ready.');
-	    });
+	 	})
 	</script>
 	</head>
 	<body>
-		<h1><%= title %></h1>
-		<div class='container' id='app' ng-app='App'>
-		<div class='links'>
-			<a href="#/login">Login</a> | <a href="#/register">Register</a>
-		</div>
-		<div ng-view=""></div>
+		<div class="container" id="app" ng-app="App">
+			<div class="row">
+				<h1 class="col-md-4"><%= title %></h1>
+				<div class="links col-md-3 col-md-offset-4">
+					<a href="#/login">Login</a> | <a href="#/">Register</a>
+				</div>
+			</div>
+		
+			<div ng-view=""></div>
 		</div>
 	</body>
 </html>

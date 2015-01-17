@@ -39,6 +39,10 @@ App.config(function($routeProvider){
 		{
 			templateUrl: '/clientviews/partials/browse.html'
 		})
+		.when('/register',
+		{
+			templateUrl: '/clientviews/partials/register.html'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});
