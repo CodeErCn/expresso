@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title>Partial</title>
+</head>
+<body>
+	<div id='create' class='container' ng-controller='appController'>
+		<h1>App Partial</h1>
+		<h2>Create</h2>
+			<input type='text' ng-model='user.username' placeholder='username' />
+			<input type='text' ng-model='user.password' placeholder='password' />
+			<input type='text' ng-model='user.gender' placeholder='gender' />		
+			<input type='text' ng-model='user.seeking' placeholder='seeking' />		
+			<input type='text' ng-model='user.birthday' placeholder='birthday' />
+			<input type='text' ng-model='user.interest1' placeholder='interest1' />
+			<input type='text' ng-model='user.interest2' placeholder='interest2' />
+			<input type='text' ng-model='user.interest3' placeholder='interest3' />
+			<input type='text' ng-model='user.aboutme' placeholder='aboutme' />
+			<input type='text' ng-model='user.url' placeholder='url to me' />
+		<button ng-click='createUser()'>Create</button>
+		<h2>Get</h2>
+			<input type='text' ng-model='objectId.id' placeholder='objectID' />
+		<button ng-click='getUser(objectId)'>Get</button>
+		<img ng-hide="user.photo == null" ng-src="data:{{user.img.contentType}};base64,{{user.photo}}">
+		<p>Username: {{user.username}}, Password: {{user.password}}, Gender: {{user.gender}}, Seeking: {{user.seeking }}, Birthday: {{ user.birthday }},  Interests: {{ user.interests }},  Aboutme: {{ user.aboutme }}.</p>
+	</div>
+</body>
+</html>

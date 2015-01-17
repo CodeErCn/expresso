@@ -47,6 +47,10 @@ App.config(function($routeProvider){
 		{
 			templateUrl: '/clientviews/partials/chat.html'
 		})
+		.when('/createtester',
+		{
+			templateUrl: '/clientviews/partials/createtester.html'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});
