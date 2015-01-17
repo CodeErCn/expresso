@@ -6,51 +6,66 @@
 <div id='main' class='container' ng-controller='appController'>	
 	<!--Header-->
 	<div class='row text-right'>
-		<a href="#/browse">Meet Your Compatibles</a> | <a href="#/logoff">Log Off</a>
+		<a href="#/logoff">Log Off</a>
 	</div>
-	<!--Chat Bar /sync with browse.html-->
-	<div class='row'>
-		<p>
-		  	<button type="button" class="btn btn btn-success navbar-btn btn-lg">Hottie 1 <span class="caret"></span></button>
-		  	<button type="button" class="btn btn btn-success navbar-btn btn-lg">Hottie 2 <span class="caret"></span></button>
-		  	<button type="button" class="btn btn btn-success navbar-btn btn-lg">Hottie 3 <span class="caret"></span></button>
-		</p>
-	</div>
-	<!--Title Bar-->
-	<div class='row'>
+
+	<div class="jumbotron">
 		<h1>Welcome, {{ user.name }}</h1>
+		<p>You have entered the virtual dating world of expresso. Meet and sip on hot, flaming singles that have the same interest as you.</p>
+		<p><a class="btn btn-primary btn-lg" href="#/browse" role="button">Meet Your Compatibles</a></p>
 	</div>
-	<!--Side Bar-->
+	<!--Left Column-->
 	<div class="col-md-4">
-	<h3>My Info</h3>
-	<img src="http://johnjournal.bravesites.com/files/images/Profile_Score_Photo.jpg" alt="{{ user.name }}" class="img-rounded img-responsive">
+	<img src="http://ftape.com/model/wp-content/uploads/2011/03/Hannah-Kern-Elite-Models-London-The-Model-Wall_0.jpg" alt="{{ user.name }}" class="img-rounded img-responsive">
 	<form>
-		<div class="radio">
-		<h5>My Gender</h5>
-			<label><input type="radio" name="user_gender" value="male">Male</label>
-			<label><input type="radio" name="user_gender" value="female">Female</label>
-		</div>
-		<div class="radio">
-		<h5>I'm Seeking</h5>
-			<label><input type="radio" name="user_seeking" value="male">Male</label>
-			<label><input type="radio" name="user_seeking" value="female">Female</label>
-		</div>
 		<div class="form-group">
-		<h5>My Icon</h5>
-			<input type="file" id="exampleInputFile">
-		<p class="help-block">Upload a photo that describes you.</p>
+			<h4>Hello, {{ user.name }}</h4>
+			<label for="profile">Upload a Profile</label>
+				<input type="file" id="profile">
+			<p class="help-block">Upload a photo that describes you.</p>
+		</div>
+		</div>
+	<!--Middle Column-->
+		<div class="col-md-4">
+		<div class="form-group">
+		    <label for="aboutyou">About You:</label>
+		    <textarea class="form-control" rows="5" id="aboutyou" placeholder="Let us get to know you."></textarea>
+		</div>
+		<div class="radio">
+			<label for="user_gender">Your Gender</label> <!--Why is it not bolding like the rest?-->
+			<label><input type="radio" id="user_gender" value="male">Male</label>
+			<label><input type="radio" id="user_gender" value="female">Female</label>
+		</div>
+		<div class="radio">
+			<label for="user_seeking">You are seeking</label> <!--Why is it not bolding like the rest?-->
+			<label><input type="radio" id="user_seeking" value="male">Male</label>
+			<label><input type="radio" id="user_seeking" value="female">Female</label>
+		</div>
+		<label for="interest">Your Interest</label>
+		<select multiple class="form-control">
+			<option>Singing</option>
+			<option>Crying</option>
+			<option>Biking</option>
+			<option>Frolicking</option>
+			<option>Catching Fireflies</option>
+			<option>Watching Movies</option>
+			<option>Eating</option>
+		</select>
+		<p class="help-block">If you want to add multiple interests, keep your finger on the command/ctrl key.</p>
+		</div>
+	<!--Right Column-->
+		<div class="col-md-4">
+		<h4>Liked Hotties</h4>
+		<div class="row">
+			<a class="media-left media-middle" href="#">
+			<img src="http://johnjournal.bravesites.com/files/images/Profile_Score_Photo.jpg" alt="{{ user.like_name }}" class="img-rounded img-responsive">
+			</a>
+			<h4>Mac Hottie</h4>
+			I'm all about being hot.
 		</div>
 		<button type="submit" class="btn btn-primary">Edit Your Info</button>
-	</form>	
-	</div>
-	<!--Main Content-->
-	<div class="col-md-8">
-	<h3>My Interests</h3>
-	<ul class="nav nav-pills nav-stacked">
-		<li>Interest</li>
-		<li>Like</li>
-	</ul>
-	</div>
+		</div>
+	</form>
 </div>
 </body>
 </html>

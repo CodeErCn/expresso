@@ -6,14 +6,17 @@
 	<div id='main' class='container' ng-controller='appController'>
 	<!--Header-->
 	<div class='row text-right'>
-		<a href="#/main">Go Back to Your Dashboard</a> | <a href="#/logoff">Log Off</a>
+		<a href="#/main">Go Back to Your Dashboard</a> |
+		<a href="#/logoff">Log Off</a>
 	</div>
 	<!--Chat Bar /sync with main.html-->
 	<div class='row'>
 		<p>
-		  	<button type="button" class="btn btn btn-success navbar-btn btn-lg">Hottie 1 <span class="caret"></span></button>
-		  	<button type="button" class="btn btn btn-success navbar-btn btn-lg">Hottie 2 <span class="caret"></span></button>
-		  	<button type="button" class="btn btn btn-success navbar-btn btn-lg">Hottie 3 <span class="caret"></span></button>
+		<h5>You are currently chatting with:</h5>
+		  	<button type="button" class="btn btn-default navbar-btn btn-lg"><a href="/#/chat">
+		  	Hottie 1</a></button>
+		  	<button type="button" class="btn btn-default navbar-btn btn-lg"><a href="/#/chat">
+		  	Hottie 2</a></button>
 		</p>
 	</div>
 	<!--Title Content-->
@@ -29,8 +32,10 @@
 				<h3>Mac Hottie{{ user.name }}</h3>
 				<p>I'm all about being hot. {{ user.about_me }}</p>
 				<p class="text-center">
-					<a href="#" class="btn btn-success" role="button">Chat</a>
-					<a href="#" class="btn btn-danger" role="button">Favorite</a>
+					<a href="#" class="btn btn-success" role="button">Chat
+						<span class="glyphicon glyphicon-message"></span></a>
+					<a href="#" class="btn btn-danger" role="button">Favorite
+						<span class="glyphicon glyphicon-fire"></span></a>
 				</p>
 			</div>
 		</div>
