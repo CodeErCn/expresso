@@ -39,15 +39,13 @@ App.config(function($routeProvider){
 		{
 			templateUrl: '/clientviews/partials/browse.html'
 		})
-<<<<<<< HEAD
 		.when('/register',
 		{
 			templateUrl: '/clientviews/partials/register.html'
-=======
+		})
 		.when('/chat',
 		{
 			templateUrl: '/clientviews/partials/chat.html'
->>>>>>> e43d5b2b1abb6b15707606b35cc3725af7f23847
 		})
 		.otherwise({
 			redirectTo: '/'
