@@ -1,10 +1,46 @@
 <html>
 <head>
-	<title>Login</title>
+	<title>Browsing for Your New Favorites</title>
 </head>
 <body>
-	<div id='login' class='container' ng-controller='appController'>
-		<h1>login</h1>
+	<div id='main' class='container' ng-controller='appController'>
+	<!--Header-->
+	<div class='row text-right'>
+		<a href="#/main">Go Back to Your Dashboard</a> |
+		<a href="#/logoff">Log Off</a>
 	</div>
+	<!--Chat Bar /sync with main.html-->
+	<div class='row'>
+		<p>
+		<h5>You are currently chatting with:</h5>
+		  	<button type="button" class="btn btn-default navbar-btn btn-lg"><a href="/#/chat">
+		  	Hottie 1</a></button>
+		  	<button type="button" class="btn btn-default navbar-btn btn-lg"><a href="/#/chat">
+		  	Hottie 2</a></button>
+		</p>
+	</div>
+	<!--Title Content-->
+	<div class='row'>
+		<h1>Meet Your Fellow Expressors!</h1>
+	</div>
+	<!--Main Content-->
+	<div class="row">
+	<div class="col-md-3" ng repeat=""> <!--Add user to users-->
+		<div class="thumbnail">
+			<img src="http://johnjournal.bravesites.com/files/images/Profile_Score_Photo.jpg" alt="{{ user.name }}" class="img-rounded img-responsive">
+			<div class="caption">
+				<h3>Mac Hottie{{ user.name }}</h3>
+				<p>I'm all about being hot. {{ user.about_me }}</p>
+				<p class="text-center">
+					<a href="#" class="btn btn-success" role="button">Chat
+						<span class="glyphicon glyphicon-message"></span></a>
+					<a href="#" class="btn btn-danger" role="button">Favorite
+						<span class="glyphicon glyphicon-fire"></span></a>
+				</p>
+			</div>
+		</div>
+	</div>
+	</div><!--End of Row <div>-->
+</div>
 </body>
 </html>

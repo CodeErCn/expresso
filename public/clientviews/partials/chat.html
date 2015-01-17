@@ -1,0 +1,34 @@
+<html>
+<head>
+	<title>Browsing for Your New Favorites</title>
+</head>
+<body>
+	<div id='main' class='container' ng-controller='appController'>
+	<!--Header-->
+	<div class='row text-right'>
+		<a href="#/main">Back to Main</a> |
+		<a href="#/browse">Meet Other Compatibles</a> |
+		<a href="#/logoff">Log Off</a>
+	</div>
+	<!--Title Content-->
+	<div class='row col-md-8 col-md-offset-2'>
+		<h1>Chat with Hottie 1</h1>
+		<!--Other Person-->
+		<div class="text-left alert alert-success"> 
+			<img src="http://johnjournal.bravesites.com/files/images/Profile_Score_Photo.jpg" alt="{{ user.like_name }}" class="img-rounded img-icon">
+			Thanks for the add!
+		</div>
+		<!--You (alert-default is custom-set)-->
+		<div class="text-right alert alert-default">
+			No problem. What games do you play?
+			<img src="http://ftape.com/model/wp-content/uploads/2011/03/Hannah-Kern-Elite-Models-London-The-Model-Wall_0.jpg" alt="{{ user.like_name }}" class="img-rounded img-icon">
+		</div>
+	<!--Text Area-->
+	<div class="row inline-block">
+		<input type="text" class="col-md-11" placeholder="Write a message here...">
+		<button type="submit" class="btn btn-primary">Send</button>
+	</div>
+	</div><!--End of Row <div>-->
+</div>
+</body>
+</html>

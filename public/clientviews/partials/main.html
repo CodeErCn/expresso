@@ -1,12 +1,71 @@
 <html>
 <head>
-	<title>main</title>
+	<title>User Dashboard</title>
 </head>
 <body>
-	<div id='main' class='container' ng-controller='appController'>
-		<h1>Welcome, {{ user.name }}</h1>
-		<div class="col-md-3">Side Bar</div>
-		<div class="col-md-9">Main Content</div>
+<div id='main' class='container' ng-controller='appController'>	
+	<!--Header-->
+	<div class='row text-right'>
+		<a href="#/logoff">Log Off</a>
 	</div>
+
+	<div class="jumbotron">
+		<h1>Welcome, {{ user.name }}</h1>
+		<p>You have entered the virtual dating world of expresso. Meet and sip on hot, flaming singles that have the same interest as you.</p>
+		<p><a class="btn btn-primary btn-lg" href="#/browse" role="button">Meet Your Compatibles</a></p>
+	</div>
+	<!--Left Column-->
+	<div class="col-md-4">
+	<img src="http://ftape.com/model/wp-content/uploads/2011/03/Hannah-Kern-Elite-Models-London-The-Model-Wall_0.jpg" alt="{{ user.name }}" class="img-rounded img-responsive">
+	<form>
+		<div class="form-group">
+			<h4>Hello, {{ user.name }}</h4>
+			<label for="profile">Upload a Profile</label>
+				<input type="file" id="profile">
+			<p class="help-block">Upload a photo that describes you.</p>
+		</div>
+		</div>
+	<!--Middle Column-->
+		<div class="col-md-4">
+		<div class="form-group">
+		    <label for="aboutyou">About You:</label>
+		    <textarea class="form-control" rows="5" id="aboutyou" placeholder="Let us get to know you."></textarea>
+		</div>
+		<div class="radio">
+			<label for="user_gender">Your Gender</label> <!--Why is it not bolding like the rest?-->
+			<label><input type="radio" id="user_gender" value="male">Male</label>
+			<label><input type="radio" id="user_gender" value="female">Female</label>
+		</div>
+		<div class="radio">
+			<label for="user_seeking">You are seeking</label> <!--Why is it not bolding like the rest?-->
+			<label><input type="radio" id="user_seeking" value="male">Male</label>
+			<label><input type="radio" id="user_seeking" value="female">Female</label>
+		</div>
+		<label for="interest">Your Interest</label>
+		<select multiple class="form-control">
+			<option>Singing</option>
+			<option>Crying</option>
+			<option>Biking</option>
+			<option>Frolicking</option>
+			<option>Catching Fireflies</option>
+			<option>Watching Movies</option>
+			<option>Eating</option>
+		</select>
+		<p class="help-block">If you want to add multiple interests, keep your finger on the command/ctrl key.</p>
+		</div>
+	<!--Right Column-->
+		<div class="col-md-4">
+		<h4>Liked Hotties</h4>
+		<div class="row">
+			<a href="#">
+			<img src="http://johnjournal.bravesites.com/files/images/Profile_Score_Photo.jpg" alt="{{ user.like_name }}" class="img-rounded img-responsive">
+			</a>
+			<h4>Mac Hottie</h4>
+			I'm all about being hot.
+		</div>
+		<button type="submit" class="btn btn-primary">Edit Your Info</button>
+		</div>
+	</form>
+</div>
 </body>
 </html>
