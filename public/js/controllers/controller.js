@@ -1,5 +1,6 @@
 App.controller('appController', function($scope, Storage){
-	$scope.user = {};	
+	$scope.browse = {};
+    $scope.user = {};	
     $scope.objectId = {};   								// set blank object to scope initially
     $scope.createUser = function(){
         var newperson = $scope.user;
@@ -14,11 +15,9 @@ App.controller('appController', function($scope, Storage){
             $scope.user = data;     						// set the scope with the response
         }, id);
     };
-    $scope.getAllUsers = function(){
-        console.log(objectId);                                                          
-        var id = { id: objectId.id };
-        Storage.getUser(function(data){                                             
-            $scope.user = data;                                                             
-        }, id);
+    $scope.getAllUsers = function(){         
+        Storage.getAllUsers(function(data){                                             
+            $scope.browse = data;                                                             
+        });
     };
 });

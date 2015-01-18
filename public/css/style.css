@@ -9,3 +9,9 @@
 	height: 50px;
 	overflow: hidden;
 }
+.logo {
+	display: inline-block;
+}
+.title {
+	display: inline-block;
+}

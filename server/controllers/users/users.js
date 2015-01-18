@@ -5,10 +5,16 @@ var User = mongoose.model('User');
 //controller methods based on routes.js
 module.exports = {
 	index: function(req, res){
-    	res.render('main/index', {title: 'ExpressIO'});	
+    	res.render('main/index', {title: 'Expresso'});	
 	},
 	show_all: function(req, res){
-    	console.log('got into show_all fxn in controller');
+    	User.find({}, function(err, all){
+    		for(user in all){
+				var photo = all[user].img.data.toString("base64");				// convert img data to base64 which the broswer can read
+    			all[user].photo = photo;
+    		}
+    		res.send(all);
+    	})
 	},
 	show: function(req, res){
     	User.findOne({ '_id': req.params.id }, function (err, user) {			// find a user object by id

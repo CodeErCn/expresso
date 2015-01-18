@@ -14,5 +14,10 @@ App.factory('Storage', function($http){
 			callback(output);
 		});
 	};
+	factory.getAllUsers = function(callback){						
+		$http.get(/users/).success(function(output){		
+			callback(output);
+		});
+	};
 	return factory
 });

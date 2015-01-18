@@ -22,6 +22,11 @@
 		<button ng-click='getUser(objectId)'>Get</button>
 		<img ng-hide="user.photo == null" ng-src="data:{{user.img.contentType}};base64,{{user.photo}}">
 		<p>Username: {{user.username}}, Password: {{user.password}}, Gender: {{user.gender}}, Seeking: {{user.seeking }}, Birthday: {{ user.birthday }},  Interests: {{ user.interests }},  Aboutme: {{ user.aboutme }}.</p>
+		<h1>Get ALL</h1>
+		<button ng-click='getAllUsers()'>Get All</button>
+		<div>
+			<ul ng-repeat='person in browse'><img ng-hide="person.photo == null" ng-src="data:{{person.img.contentType}};base64,{{person.photo}}"><li ng-bind='person.username'></li></ul>
+		</div>
 	</div>
 </body>
 </html>
