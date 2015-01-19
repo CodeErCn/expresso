@@ -10,8 +10,13 @@
 	overflow: hidden;
 }
 .logo {
+	margin-top: 1em;
+	vertical-align: top;
 	display: inline-block;
 }
 .title {
 	display: inline-block;
+}
+.ng-invalid * {
+	border: 1px solid #FA787E;
 }

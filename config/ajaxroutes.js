@@ -8,6 +8,5 @@ module.exports = function Routes(app){
     app.get('/users/:id',         	function(req, res) { users.show(req, res); 		});
     app.post('/users/new',         	function(req, res) { users.create(req, res); 	});
     app.post('/users/:id',          function(req, res) { users.update(req, res);	});
-    app.get('/files',           	function(req, res) { files.download(req, res);	});
-    app.post('/files',         		function(req, res) { files.upload(req, res);	});
+    app.post('/login',        		function(req, res) { users.login(req, res);		});
 }

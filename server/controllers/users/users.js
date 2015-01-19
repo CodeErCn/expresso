@@ -70,5 +70,21 @@ module.exports = {
 	},
 	update: function(req, res){
     	console.log('got into update fxn in controller');
+	},
+	login: function(req, res){															// login validation
+		var query  = User.where({ 'username': req.body.username });
+    	query.findOne({ 'username': req.body.username }, function(err, all){			// find if username exists in db, and if so, check password
+    		if(all){
+    			if(all.password == req.body.password){									// validate password input						
+    				res.send(all);														// username and password matches, send personal info back to client
+    			}
+    			else {
+    				res.send('Username and Password do not match');
+    			}
+    		}
+    		else {
+    			res.send('User not found');
+    		}
+    	});
 	}
 };

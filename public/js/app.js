@@ -1,5 +1,16 @@
 // put the angular objects moduel in variable
-var App = angular.module('App', ['ngRoute']);
+var App = angular.module('App', ['ngRoute'])
+	.service('sharedProperties', function () {
+	        var property = {};
+	        return {
+	            getProperty: function () {
+	                return property;
+	            },
+	            setProperty: function(value) {
+	                property = value;
+	            }
+	        };
+	    });
 
 App.config(function($routeProvider){
 	$routeProvider

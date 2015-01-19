@@ -1,16 +1,10 @@
-<html>
-<head>
-	<title>User Dashboard</title>
-</head>
-<body>
 <div id='main' class='container' ng-controller='appController'>	
 	<!--Header-->
 	<div class='row text-right'>
 		<a href="#/logoff">Log Off</a>
 	</div>
-
 	<div class="jumbotron">
-		<h1>Welcome, {{ user.name }}</h1>
+		<h1>Welcome, {{ user.username }}</h1>
 		<p>You have entered the virtual dating world of expresso. Meet and sip on hot, flaming singles that have the same interest as you.</p>
 		<p><a class="btn btn-primary btn-lg" href="#/browse" role="button">Meet Your Compatibles</a></p>
 	</div>
@@ -20,7 +14,7 @@
 	<img src="http://ftape.com/model/wp-content/uploads/2011/03/Hannah-Kern-Elite-Models-London-The-Model-Wall_0.jpg" alt="{{ user.name }}" class="img-rounded img-responsive">
 	<form>
 		<div class="form-group">
-			<h4>Hello, {{ user.name }}</h4>
+			<h4>Hello, {{ user.username }}</h4>
 			<div class="form-group">
 			    <h5>About You:</h5>
 			    <textarea class="form-control" rows="5" placeholder="Let us get to know you."></textarea>

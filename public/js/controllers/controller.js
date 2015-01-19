@@ -1,7 +1,47 @@
-App.controller('appController', function($scope, Storage){
-	$scope.browse = {};
-    $scope.user = {};	
+App.controller('appController', function($scope, Storage, $location, sharedProperties){
+    $scope.user = sharedProperties.getProperty();
+    $scope.login = {};
+	$scope.browse = {};	
     $scope.objectId = {};   								// set blank object to scope initially
+    $scope.login.errors = {};
+    $scope.loginClicked = function(){                       // login validations BEGIN ------>
+        $scope.login.errors = {};                           // reset any prior errors
+        if(typeof($scope.login.username) == 'undefined')
+        {
+            $scope.login.errors['emptyUser'] = { msg: "Username cannot be blank" }
+            $scope.usernameForm.username.$setValidity("emptyUser", false);
+        }
+        else {
+            $scope.usernameForm.username.$setValidity("emptyUser", true);            
+        }
+        if (typeof($scope.login.password) == 'undefined')
+        {
+            $scope.login.errors['emptyPW'] = { msg: "Password cannot be blank" };
+            $scope.passwordForm.password.$setValidity("emptyPW", false);
+        }
+        else {
+            $scope.passwordForm.password.$setValidity("emptyPW", true);            
+        }                                                   // <------ END login validations
+        if($scope.usernameForm.$valid && $scope.passwordForm.$valid){
+            Storage.loginClicked($scope.login, (function(data){
+                if(typeof(data) == "String"){
+                    $scope.login.errors['matchFail'] = { msg: data };
+                }
+                else{
+                    sharedProperties.setProperty(data);
+                    $location.path('/main');
+                }
+            })
+            );
+        }
+    };
+    $scope.getID = function () {
+        var person = sharedProperties.getProperty();
+        console.log(person);
+    };
+    $scope.getUser = function(){
+        $rooteScope.user;                                
+    };
     $scope.createUser = function(){
         var newperson = $scope.user;
     	Storage.createUser(function(data){					// browser will say 'done' from the res.send server side
@@ -16,7 +56,7 @@ App.controller('appController', function($scope, Storage){
         }, id);
     };
     $scope.getAllUsers = function(){         
-        Storage.getAllUsers(function(data){                                             
+        Storage.getAllUsers(function(data){                                   
             $scope.browse = data;                                                             
         });
     };

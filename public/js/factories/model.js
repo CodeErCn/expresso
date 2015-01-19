@@ -1,6 +1,19 @@
 // set up factory with data, call it Storage
 App.factory('Storage', function($http){
 	var factory = {};
+	var user = {};
+	factory.loginClicked = function(login, callback){
+		$http.post('/login', login).success(function(output){	//post to users/new in routes, upon succes run call back fxn
+			if(typeof(output) == "String"){
+				callback(output);
+			}
+			else{
+				user = output;
+				callback(output);
+			}
+		});
+		return user;
+	};
 	factory.createUser = function(callback, person){
 		var image = null;
 		$http.post('/users/new', person).success(function(output){	//post to users/new in routes, upon succes run call back fxn
