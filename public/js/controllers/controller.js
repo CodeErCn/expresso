@@ -1,11 +1,10 @@
 App.controller('appController', function($scope, Storage, $location, sharedProperties){
     $scope.user = sharedProperties.getProperty();
     $scope.login = {};
-	$scope.browse = {};	
-    $scope.objectId = {};   								// set blank object to scope initially
+	$scope.browse = {};	                                   
     $scope.login.errors = {};
-    $scope.loginClicked = function(){                       // login validations BEGIN ------>
-        $scope.login.errors = {};                           // reset any prior errors
+    $scope.loginClicked = function(){                                               // login validations BEGIN ------>
+        $scope.login.errors = {};                                                   // reset any prior errors
         if(typeof($scope.login.username) == 'undefined')
         {
             $scope.login.errors['emptyUser'] = { msg: "Username cannot be blank" }
@@ -21,25 +20,18 @@ App.controller('appController', function($scope, Storage, $location, sharedPrope
         }
         else {
             $scope.passwordForm.password.$setValidity("emptyPW", true);            
-        }                                                   // <------ END login validations
-        if($scope.usernameForm.$valid && $scope.passwordForm.$valid){
+        }                                                                           // <------ END login validations
+        if($scope.usernameForm.$valid && $scope.passwordForm.$valid){               // if username form and password form are valid, go here
             Storage.loginClicked($scope.login, (function(data){
                 if(typeof(data) == "string"){
                     $scope.login.errors['matchFail'] = { msg: data };
                 }
                 else{
-                    sharedProperties.setProperty(data);
-                    $location.path('/main');
+                    sharedProperties.setProperty(data);                             // Set shardproperties object
+                    $location.path('/main');                                        // reroute to main
                 }
             }));
         }
-    };
-    $scope.getID = function () {
-        var person = sharedProperties.getProperty();
-        console.log(person);
-    };
-    $scope.getUser = function(){
-        $rooteScope.user;                                
     };
     $scope.createUser = function(){
         var newperson = $scope.user;
