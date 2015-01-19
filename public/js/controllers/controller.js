@@ -24,15 +24,14 @@ App.controller('appController', function($scope, Storage, $location, sharedPrope
         }                                                   // <------ END login validations
         if($scope.usernameForm.$valid && $scope.passwordForm.$valid){
             Storage.loginClicked($scope.login, (function(data){
-                if(typeof(data) == "String"){
+                if(typeof(data) == "string"){
                     $scope.login.errors['matchFail'] = { msg: data };
                 }
                 else{
                     sharedProperties.setProperty(data);
                     $location.path('/main');
                 }
-            })
-            );
+            }));
         }
     };
     $scope.getID = function () {
