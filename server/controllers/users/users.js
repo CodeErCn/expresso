@@ -1,6 +1,7 @@
 // require mongo models and use schema created in server/models
 var mongoose = require('mongoose'); 
 var User = mongoose.model('User');
+var fs = require('fs');
 
 //controller methods based on routes.js
 module.exports = {
@@ -73,11 +74,13 @@ module.exports = {
 	},
 	login: function(req, res){															// login validation
 		var query  = User.where({ 'username': req.body.username });
-    	query.findOne({ 'username': req.body.username }, function(err, all){			// find if username exists in db, and if so, check password
-    		if(all){
-    			if(all.password == req.body.password){									// validate password input						
-    				res.send(all);														// username and password matches, send personal info back to client
-    			}
+    	query.findOne({ 'username': req.body.username }, function(err, user){			// find if username exists in db, and if so, check password
+    		if(user){
+    			if(user.password == req.body.password){									// validate password input						
+    			var photo = user.img.data.toString("base64");                           // convert img data to base64 which the broswer can read
+                    user.photo = photo;                                                 // put the string in user.photo property for easy access
+                    res.send(user);                                                     // username and password matches, send personal info back to client
+                }
     			else {
     				res.send('Username and Password do not match');
     			}
@@ -86,5 +89,29 @@ module.exports = {
     			res.send('User not found');
     		}
     	});
-	}
+	},
+    uploadFile: function(req, res){
+        var id = req.params.id;
+        var tmp_path = req.files.file.path;
+        var photo = {
+                        img:    {
+                                    data: null,
+                                    contentType: req.files.file.headers['content-type']
+                                }
+                    };
+        photo.img.data = fs.readFileSync(tmp_path);
+        var query = { "_id": id };
+        var update = photo;
+        var options = { new: true };
+        User.findOneAndUpdate(query, update, options, function(err, person) {
+            if (err) {
+                console.log('got an error');
+            }
+            else {
+                var photo = person.img.data.toString("base64");           // convert img data to base64 which the broswer can read
+                person.photo = photo;                                   // put the string in user.photo property for easy access
+                res.send(person);
+            }
+        });
+    }
 };

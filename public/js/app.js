@@ -1,5 +1,5 @@
 // put the angular objects moduel in variable
-var App = angular.module('App', ['ngRoute'])
+var App = angular.module('App', ['ngRoute', 'angularFileUpload'])
 	.service('sharedProperties', function () {
 	        var property = {};
 	        var browse = {};
