@@ -11,28 +11,13 @@
 
 	<!--Left Column-->
 	<div class="col-md-4">
-	<img src="http://ftape.com/model/wp-content/uploads/2011/03/Hannah-Kern-Elite-Models-London-The-Model-Wall_0.jpg" alt="{{ user.name }}" class="img-rounded img-responsive">
+	<img ng-hide="user.photo == null" ng-src="data:{{user.img.contentType}};base64,{{user.photo}}" class="img-rounded img-responsive">
 	<form>
 		<div class="form-group">
-			<h4>Hello, {{ user.username }}</h4>
-			<div class="form-group">
-			    <h5>About You:</h5>
-			    <textarea class="form-control" rows="5" placeholder="Let us get to know you."></textarea>
-			</div>
-			<div class="radio">
-				<h5>Your Gender: </h5>
-				<label><input type="radio" id="user_gender" value="male">Male</label>
-				<label><input type="radio" id="user_gender" value="female">Female</label>
-			</div>
-			<div class="radio">
-				<h5>Your Preferece: </h5>
-				<label><input type="radio" id="user_seeking" value="male">Male</label>
-				<label><input type="radio" id="user_seeking" value="female">Female</label>
-			</div>
-			<h5>Your Photo: </h5>
-				<input type="file" id="profile">
-			<p class="help-block">Upload a photo that describes you.</p>
-			<button type="submit" class="btn btn-primary">Edit Your Info</button>
+			<h4>Hello, {{ user.username }}: </h4>
+            <div class="controls">
+				<button ng-file-select ng-model="myFiles">Upload</button>
+            </div>
 		</div>
 	</form>
 	</div><!--End </div> for Left Column-->

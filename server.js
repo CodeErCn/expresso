@@ -11,7 +11,7 @@ app.configure(function() {                                  // configuring app
 
     // app.use(express.session( { secret: 'ninja' }));
 
-    // var bodyParser = require('body-parser');
+    app.use(express.bodyParser());
     app.use(express.json());                                // handles POST data                          
     app.use(express.urlencoded({ extended: true }));        // handles POST data 
 
