@@ -1,20 +1,19 @@
 App.factory('chatFactory', function() {
-    var messages = [];
-    var message = {
+    var messages = {};
+    var users = {
         id:             null,
-        username:       null,
+        email:          null,
         content:        null,
         date:           Date.now(),
     }
 
     return {
-        displayMessages: function() {
+        displayMsgHistory: function() {
             var messageHistory = messages;
-            console.log(messageHistory);
+            return messageHistory;
         },
         pushMessage: function(message) {
-            newUser.message = message;
-            console.log(newUser)
+            users.content = message;
         },
 
     }

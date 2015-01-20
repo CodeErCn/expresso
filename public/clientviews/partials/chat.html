@@ -11,24 +11,18 @@
 	<h1>Chat with Hottie 1</h1>
 	<div class='chat_history'>
 
-		<!-- Kept for CSS Template:
-
-		<div class="text-left alert alert-success"> 
-			<img src="http://johnjournal.bravesites.com/files/images/Profile_Score_Photo.jpg" alt="{{ user.like_name }}" class="img-rounded img-icon">
-			Thanks for the add!
-		</div>
+	<!-- <ul>
+      	<li ng-repeat="message in messages track by $date">
+      		{{ message }}
+      	</li>
+    </ul> -->
 		
-		<div class="text-right alert alert-default">
-			No problem. What games do you play?
-			<img src="http://ftape.com/model/wp-content/uploads/2011/03/Hannah-Kern-Elite-Models-London-The-Model-Wall_0.jpg" alt="{{ user.like_name }}" class="img-rounded img-icon">
-		</div> -->
-
 	</div>
 
 	<!--Chat Room - Text Area-->
-	<form id='message_form' class="row inline-block">
+	<form id='message_form' ng-submit="addMessage()" class="row inline-block">
 		<input type="text" class="message_string col-md-10" ng-model="user.message"placeholder="Write a message here...">
-		<button type="submit" class="btn btn-primary" ng-click="addMessage()">Send</button>
+		<button type="submit" class="btn btn-primary">Send</button>
 	</form>
 	</div><!--End of Row <div>-->
 
