@@ -66,7 +66,9 @@ App.controller('appController', function($scope, Storage, $location, sharedPrope
         sharedProperties.setProperty($scope.user);
         var chooserID = $scope.user._id;  
         var chosenArr = $scope.user.chosen;
-        Storage.addChosen(function(data){}, chooserID, chosenArr);
+        Storage.addChosen(function(data){                                             
+            console.log(data);                               // set the scope with the response
+        }, chooserID, chosenArr);
     };
 
     // FILE UPLOAD BEGIN --->

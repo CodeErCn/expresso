@@ -10,57 +10,55 @@
 	</div>
 
 	<!--Left Column-->
-	<div class="col-md-4">
-	<img ng-hide="user.photo == null" ng-src="data:{{user.img.contentType}};base64,{{user.photo}}" class="img-rounded img-responsive">
-	<form>
-		<div class="form-group">
-			<h4>Hello, {{ user.username }}: </h4>
-			<div class="controls">
-				<button ng-file-select ng-model="myFiles">Upload Image</button>
+	<div class="row">
+		<div class="col-md-4">
+		<img ng-hide="user.photo == null" ng-src="data:{{user.img.contentType}};base64,{{user.photo}}" class="img-rounded img-responsive">
+		<form>
+			<div class="form-group">
+				<h4>Hello, {{ user.username }}: </h4>
+				<div class="controls">
+					<button ng-file-select ng-model="myFiles">Upload Image</button>
+				</div>
 			</div>
+			<div class="stats">
+				<h4>Your profile:</h4>
+				<dl class="padding-reset dl-horizontal">
+					<dt>About Me: </dt>
+						<dd><span ng-bind="user.aboutme" /></dd>
+					<dt>Gender: </dt>
+						<dd><span ng-bind="user.gender" /></dd>
+					<dt>Seeking: </dt>
+						<dd><span ng-bind="user.seeking" /></dd>
+					<dt>Birthday: </dt>
+						<dd><span ng-bind="user.birthday" /></dd>
+					<dt>Interests: </dt>
+						<dd ng-repeat="interest in user.interests" ng-repeat="interest"><span ng-bind="interest"></span></dd>
+				</dl>
+			</div>
+		</form>
 		</div>
-		<div class="stats">
-			<h4>Your profile:</h4>
-			<dl class="padding-reset dl-horizontal">
-				<dt>About Me: </dt>
-					<dd><span ng-bind="user.aboutme" /></dd>
-				<dt>Gender: </dt>
-					<dd><span ng-bind="user.gender" /></dd>
-				<dt>Seeking: </dt>
-					<dd><span ng-bind="user.seeking" /></dd>
-				<dt>Birthday: </dt>
-					<dd><span ng-bind="user.birthday" /></dd>
-				<dt>Interests: </dt>
-					<dd ng-repeat="interest in user.interests" ng-repeat="interest"><span ng-bind="interest"></span></dd>
-			</dl>
-		</div>
-	</form>
-	</div>
-	<!--End </div> for Left Column-->
-
-	<!--Main Content-->
-
-	<!-- 	<div class="row">
-	<h4>Your Interest</h4>
-	<select multiple class="form-control">
-		<option>Singing</option>
-		<option>Crying</option>
-		<option>Biking</option>
-		<option>Frolicking</option>
-		<option>Catching Fireflies</option>
-		<option>Watching Movies</option>
-		<option>Eating</option>
-	</select>
-	<p class="help-block">If you want to add multiple interests, keep your finger on the command/ctrl key.</p>
-	</div> -->
-	<div class="col-md-8">
-		<div class="row main-bordered">
+		<div class="col-md-8 main-bordered">
 			<h4>Liked Hotties</h4>
-			<div ng-repeat="hottie in hotties" class="hottie col-md-5">
-				<h4 ng-bind="hottie.username"></h4>
-				<img ng-hide="hottie.photo == null" ng-src="data:{{hottie.img.contentType}};base64,{{hottie.photo}}" class="img-rounded img-responsive" class="img-rounded img-responsive">
-				<h6 ng-bind="hottie.aboutme"></h6>
+			<div class="col-md-6" ng-repeat="hottie in hotties" class="browse-div">
+				<div class="thumbnail">
+					<div class="browse-img-container">
+						<img class="browse-img" ng-hide="hottie.photo == null" ng-src="data:{{hottie.img.contentType}};base64,{{hottie.photo}}">
+					</div>
+					<div class="caption">
+						<div class='browse-stats'>
+							<h3>{{ hottie.username }}</h3>
+							<p class="aboutme">{{ hottie.aboutme }}</p>
+						</div>
+						<button class="btn btn-success">
+							<span class="glyphicon glyphicon-message">Chat
+						</button>
+						<button class="btn btn-warning" ng-click="removeChosen(hottie._id)">
+							<span class="glyphicon glyphicon-fire"></span>Remove
+						</button>
+					</div>
+				</div>
 			</div>
-		</div> 
+		</div>
+	</div>
 	<!--End </div> for Main Content-->
 </div>
