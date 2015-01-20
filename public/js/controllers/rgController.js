@@ -1,16 +1,34 @@
-App.controller('registerCtrl', function($scope, registerFty) {
+App.controller('registerCtrl', function($scope, $location, registerFty) {
   
   $scope.getStarted = function() {
-    console.log('get Started in controller');
     registerFty.addNewUser();
-  }
+  };
 
   $scope.addGender = function() {
-    $(document).on('click', 'a.btn', function() {
-      console.log('here');
-      registerFty.addGender($('input[type="radio"]:checked').val());
-    })
-  }
+    var gender=$('input[type="radio"]:checked').val();
+      if(gender===undefined) {
+        alert("Your gender is very important to us!!");
+      } else {
+        registerFty.addGender(gender);
+        $location.path('/seeking');
+      } 
+  };
+
+  $scope.addSeeking = function() {
+    var genderS=$('input[type="radio"]:checked').val();
+    console.log('seeking '+genderS);
+      if(genderS===undefined) {
+        alert("What you are looking for is very important to us!!");
+      } else {
+        registerFty.addSeeking(genderS);
+        $location.path('/interest');
+      } 
+  };
+
+  
+
+
+
 
 
 })

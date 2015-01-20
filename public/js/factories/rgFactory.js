@@ -1,5 +1,4 @@
 App.factory('registerFty', function() {
-    var users = [];
     var user = {
         photo:    null,
         username:   null,
@@ -15,16 +14,19 @@ App.factory('registerFty', function() {
         aboutme:  null,
         chosen:   { type: Array, default : [] }
     }
-
+    
+    var newUser = {};
+    
     return {
       addNewUser: function() {
-        var newUser = user;
-        console.log(newUser);
+        newUser = user;
       },
       addGender: function(gender) {
         newUser.gender = gender;
-        console.log(newUser)
       },
-
+      addSeeking: function(seeking) {
+        newUser.seeking = seeking;
+        console.log(newUser);
+      }
     }
 })

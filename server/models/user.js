@@ -13,7 +13,7 @@ var UserSchema = new mongoose.Schema({
 				},
 	birthday: 	String,
 	interests: 	{ type: Array, default : [] },
-	aboutme: 	String,
+	aboutme: 	{ type: String, default : 'Please tell me a little about yourself.'},
 	chosen: 	{ type: Array, default : [] }
 });
 UserSchema.path('username').required(true, 'User name cannot be blank');
