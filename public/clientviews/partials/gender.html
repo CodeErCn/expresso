@@ -1,29 +1,30 @@
-<div class="container">
+<div class="container" ng-controller="registerCtrl">
     <div class="row">
       <h1 class="col-md-11 col-md-offset-1">Dating Site for gamers <small>by gamers</small></h1>
-      <h4 class="col-md-11 col-md-offset-1">Step 1.</h4>
-      <div class="col-md-8 col-md-offset-1">
-         <div class="panel panel-info">
-          <div class="panel-heading">
-            <h1 class="panel-title">Gender</h1>
-          </div>
-          <div class="panel-body">
-            Please specify your gender:
-            <div class="radio">
-              <label>
-                <input type="radio" name="gender" value="male">
-                male
-              </label>
+      <h4 class="col-md-10 col-md-offset-1">Step 1.</h4>
+      <div class="col-md-12 background"></div>
+        <div class="col-md-8 col-md-offset-1 forground">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h1 class="panel-title">Gender</h1>
             </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="gender" value="female">
-                female
-              </label>
+            <div class="panel-body">
+              Please specify your gender:
+              <div class="radio">
+                <label>
+                  <input type="radio" name="gender" value="male">
+                  male
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="gender" value="female">
+                  female
+                </label>
+              </div>
             </div>
-          </div>
-        </div> 
-        <a class="btn btn-info btn-block" href="#/seeking" role="button">next</a>
-      </div>
+          </div> 
+          <a class="btn btn-info btn-block" href="#/seeking" role="button" ng-click="addGender()">next</a>
+        </div>
     </div>
 </div>

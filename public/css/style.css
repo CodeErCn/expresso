@@ -20,3 +20,26 @@
 .ng-invalid * {
 	border: 1px solid #FA787E;
 }
+
+div.background {
+	height: 500px;
+	top: 190px;
+	left: 0px;
+	background: url('../img/lolbackground.jpg') center no-repeat;
+	background-size: cover;
+	position: absolute;
+	opacity: .5;
+}
+
+div.forground {
+	margin-top: 80px;
+}
+
+a.thumbnail {
+	text-decoration: none;
+}
+
+span.glyphicon {
+	margin-right: 5%;
+	color: lightgray;
+}
