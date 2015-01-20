@@ -1,50 +1,43 @@
-<html>
-<head>
-	<title>Browsing for Your New Favorites</title>
-</head>
-<body>
-	<div id='main' class='container' ng-controller='appController'>
-	<!--Header-->
-	<div class='row text-right'>
-		<a href="#/main">Go Back to Your Dashboard</a> |
-		<a href="#/logoff">Log Off</a>
-	</div>
-	<!--Chat Bar /sync with main.html-->
+<div id='main' class='container' ng-controller='appController'>
+<!--Header-->
+<div class='row text-right'>
+	<a href="#/main">Go Back to Your Dashboard</a> |
+	<a href="#/logoff">Log Off</a>
+</div>
+<!--Chat Bar /sync with main.html-->
 <!-- 	<div class='row'>
-		<p>
-		<h5>You are currently chatting with:</h5>
-		  	<button type="button" class="btn btn-default navbar-btn btn-lg"><a href="/#/chat">
-		  	Hottie 1</a></button>
-		  	<button type="button" class="btn btn-default navbar-btn btn-lg"><a href="/#/chat">
-		  	Hottie 2</a></button>
-		</p>
-	</div> -->
-	<!--Title Content-->
-	<div class='row'>
-		<h1>Meet Your Fellow Expressors!</h1>
-	</div>
-	<!--Main Content-->
-	<div class="row">
-		<div class="col-md-3" ng-repeat="person in browse" class="browse-div"> <!--Add user to users-->
-			<div class="thumbnail">
-				<div class="browse-img-container">
-					<img class="browse-img" ng-hide="person.photo == null" ng-src="data:{{person.img.contentType}};base64,{{person.photo}}">
+	<p>
+	<h5>You are currently chatting with:</h5>
+	  	<button type="button" class="btn btn-default navbar-btn btn-lg"><a href="/#/chat">
+	  	Hottie 1</a></button>
+	  	<button type="button" class="btn btn-default navbar-btn btn-lg"><a href="/#/chat">
+	  	Hottie 2</a></button>
+	</p>
+</div> -->
+<!--Title Content-->
+<div class='row'>
+	<h1>Meet Your Fellow Expressors!</h1>
+</div>
+<!--Main Content-->
+<div class="row">
+	<div class="col-md-3" ng-repeat="person in browse" class="browse-div"> <!--Add user to users-->
+		<div class="thumbnail">
+			<div class="browse-img-container">
+				<img class="browse-img" ng-hide="person.photo == null" ng-src="data:{{person.img.contentType}};base64,{{person.photo}}">
+			</div>
+			<div class="caption">
+				<div class='browse-stats'>
+					<h3>{{ person.username }}</h3>
+					<p class="aboutme">{{ person.aboutme }}</p>
 				</div>
-				<div class="caption">
-					<div class='browse-stats'>
-						<h3>{{ person.username }}</h3>
-						<p class="aboutme">{{ person.aboutme }}</p>
-					</div>
-					<p class="text-center">
-						<a href="#" class="btn btn-success" role="button">Chat
-							<span class="glyphicon glyphicon-message"></span></a>
-						<a href="#" class="btn btn-danger" role="button">Favorite
-							<span class="glyphicon glyphicon-fire"></span></a>
-					</p>
-				</div>
+				<p class="text-center">
+					<a href="#" class="btn btn-success" role="button">Chat
+						<span class="glyphicon glyphicon-message"></span></a>
+					<button class="btn btn-danger" ng-click="addChosen(person._id)">Favorite
+						<span class="glyphicon glyphicon-fire"></span></a>
+				</p>
 			</div>
 		</div>
-	</div><!--End of Row <div>-->
+	</div>
+</div><!--End of Row <div>-->
 </div>
-</body>
-</html>

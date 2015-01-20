@@ -1,8 +1,13 @@
 App.controller('appController', function($scope, Storage, $location, sharedProperties, $upload){
     $scope.user = sharedProperties.getProperty();
     $scope.login = {};
-	$scope.browse = sharedProperties.getAll();	   
-    // BEGIN VALIDATIONS FOR LOGIN --->                                 
+	$scope.browse = sharedProperties.getAll();	
+    if((typeof $scope.user.chosen !== "undefined") && ($scope.user.chosen.length !== 0)){ 
+        Storage.getAllChosen($scope.user.chosen, function(data){
+            $scope.hotties = data;
+        });                                                                         // pass in an array of id strings, and retrieve the people objects from the array.
+    }
+    // BEGIN VALIDATIONS FOR LOGIN --->   
     $scope.login.errors = {};
     $scope.loginClicked = function(){                                               // login validations BEGIN ------>
         $scope.login.errors = {};                                                   // reset any prior errors
@@ -61,7 +66,9 @@ App.controller('appController', function($scope, Storage, $location, sharedPrope
         sharedProperties.setProperty($scope.user);
         var chooserID = $scope.user._id;  
         var chosenArr = $scope.user.chosen;
-        Storage.addChosen(function(data){}, chooserID, chosenArr);
+        Storage.addChosen(function(data){                                             
+            console.log(data);                               // set the scope with the response
+        }, chooserID, chosenArr);
     };
 
     // FILE UPLOAD BEGIN --->
