@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var fs = require('fs');
 
-//controller methods based on routes.js
+//controller methods based on ajaxroutes.js
 module.exports = {
 	index: function(req, res){
     	res.render('main/index', {title: 'Expresso'});	
@@ -72,6 +72,20 @@ module.exports = {
 	update: function(req, res){
     	console.log('got into update fxn in controller');
 	},
+    getAllChosen: function(req, res){
+        User.find({'_id': { $in: req.body } }, function(err, docs){
+            if(err){
+                console.log(err);
+            }
+            else{
+                for(user in docs){
+                    var photo = docs[user].img.data.toString("base64");                       // convert img data to base64 which the broswer can read
+                    docs[user].photo = photo;   
+                }
+                res.send(docs);
+            }
+        });
+    },
 	login: function(req, res){															// login validation
 		var query  = User.where({ 'username': req.body.username });
     	query.findOne({ 'username': req.body.username }, function(err, user){			// find if username exists in db, and if so, check password
@@ -108,8 +122,8 @@ module.exports = {
                 console.log('got an error');
             }
             else {
-                var photo = person.img.data.toString("base64");           // convert img data to base64 which the broswer can read
-                person.photo = photo;                                   // put the string in user.photo property for easy access
+                var photo = person.img.data.toString("base64");                         // convert img data to base64 which the broswer can read
+                person.photo = photo;                                                   // put the string in user.photo property for easy access
                 res.send(person);
             }
         });

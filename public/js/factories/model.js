@@ -2,9 +2,9 @@
 App.factory('Storage', function($http){
 	var factory = {};
 	var user = {};
-	var chosen = [];
+	var liked = [];
 	factory.loginClicked = function(login, callback){
-		$http.post('/login', login).success(function(output){	//post to users/new in routes, upon succes run call back fxn
+		$http.post('/login', login).success(function(output){		//post to users/new in routes, upon succes run call back fxn
 			if(typeof(output) == "String"){
 				callback(output);
 			}
@@ -28,7 +28,12 @@ App.factory('Storage', function($http){
 		});
 	};
 	factory.getAllUsers = function(callback){						
-		$http.get(/users/).success(function(output){		
+		$http.get('/users/').success(function(output){		
+			callback(output);
+		});
+	};
+	factory.getAllChosen = function(chosenArr, callback){
+		$http.post('/getAllChosen/', chosenArr).success(function(output){		
 			callback(output);
 		});
 	};
@@ -40,6 +45,8 @@ App.factory('Storage', function($http){
 		$http.post('/addChosen/', send).success(function(output){		
 			callback(output);
 		});
+		chosen = chosenArr;
+		return chosen;
 	};
 	return factory
 });

@@ -4,6 +4,7 @@
 	border-color: gainsboro;
 	color: grey;
 }
+/* index.ejs ---> */
 .img-icon {
 	width: 50px;
 	height: 50px;
@@ -17,10 +18,14 @@
 .title {
 	display: inline-block;
 }
+/* <--- index.ejs */
+
+/* login.html validation */
 .ng-invalid * {
 	border: 1px solid #FA787E;
 }
 
+/* initial registration styling ---> */
 div.background {
 	height: 500px;
 	top: 190px;
@@ -43,7 +48,9 @@ span.glyphicon {
 	margin-right: 5%;
 	color: lightgray;
 }
+/* <--- initial registration styling */
 
+/* browse.html ---> */
 .browse-img-container {
 	height: 20em;
 	width: 100%;
@@ -61,3 +68,20 @@ span.glyphicon {
    display: inline-block;
    height: 450px;
 }
+/* <--- browse.html */
+
+/* main.html ---> */
+.padding-reset dt {
+	width: 5em;
+}
+.dl-horizontal dd {
+	margin-left: 100px;
+}
+.main-bordered {
+	padding: 1em;
+	border: 1px solid RGB(51, 73, 86);
+	border-radius: 1em;
+	width: 100%;
+	height: auto;
+}
+/* <--- main.html */
