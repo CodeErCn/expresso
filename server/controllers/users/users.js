@@ -28,7 +28,7 @@ module.exports = {
 		});
 	},
     // REGISTRATION PARTIAL FUNCTION BEGIN -->
-	create: function(req, res){													// create the object to match schema
+	create: function(req, res){	
 		var user = 
 			{
 				photo: 		'',													// create empty photo string for putting image data upon retrieval
@@ -37,41 +37,36 @@ module.exports = {
 				gender: 	req.body.gender,
 				seeking: 	req.body.seeking,
 				img: 		{
-								data: null,
+                                data: null,
 								contentType: null
 							},
 				birthday: 	req.body.birthday,
-				interests: 	[req.body.interest1, req.body.interest2, req.body.interest3],
+				interests: 	req.body.interests,
 				aboutme: 	req.body.aboutme,
 				chosen:   	[]
-			};
-		var request = require('request');												// simplifies getting images from urls
-		
-		var urlCopy = req.body.url;														// the following deal with the image data
-		user.img.contentType = urlCopy.substring((urlCopy.length-3), urlCopy.length);	// set the contenttype based on whether its .png or .jpg
-		if 		(user.img.contentType === "jpg"){ user.img.contentType = 'image/jpg'; } 
-		else if (user.img.contentType === "png"){ user.img.contentType = 'image/png'; } 
-		else if (user.img.contentType === "peg"){ user.img.contentType = 'image/jpeg'; } 
-		request({																		// parameters for request
-          	url: req.body.url,
-          	encoding: 'binary'
-        	}, function(error, response, body) {
-          	if (!error && response.statusCode === 200) {								// create storable img data from the photo
-            	var buffer = new Buffer(body, 'binary');
-            	user.img.data = buffer;
-             	var a = new User(user); 												// create the new user
-             	a.save(function (err, b) {
-             		if(err){
-             			console.log(err);
-             		}
-             		else{
-             			console.log(b);
-             		}
-				});           	
-          	}
-     	});
-     	
-     	res.send('done');																// send notice back to the controller's callback function
+			};                                                                   // create the object to match schema
+    	var request = require('request');									     // simplifies getting images from urls
+    	var urlLogo = 'http://st.rfclipart.com/image/thumbnail/9d-12-6b/top-view-of-mug-of-coffee-with-heart-shaped-foam-Download-Royalty-free-Vector-File-EPS-34120.jpg'				 // the following deal with the image data
+    		user.img.contentType = 'image/jpg';
+    		request({															 // parameters for request
+              	url: urlLogo,
+              	encoding: 'binary'
+            	}, function(error, response, body) {
+              	if (!error && response.statusCode === 200) {					  // create storable img data from the photo
+                	var buffer = new Buffer(body, 'binary');
+                    console.log(buffer);
+                	user.img.data = buffer;
+                 	var a = new User(user); 									  // create the new user
+                 	a.save(function (err, user) {
+                 		if(err){
+                 			console.log("save Error" + err);
+                 		}
+                 		else{
+                 			res.send(user)
+                 		}
+    				});           	
+              	}
+         	});															
 	},
     // <-- END REGISTRATION PARTIAL FUNCTION
 	// EDIT PARTIAL FUNCTION

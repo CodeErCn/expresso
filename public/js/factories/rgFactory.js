@@ -1,4 +1,4 @@
-App.factory('registerFty', function() {
+App.factory('registerFty', function($http) {
 	var user = {
 		photo:    '',
 		username:   null,
@@ -6,7 +6,7 @@ App.factory('registerFty', function() {
 		gender:   null,
 		seeking:  null,
 		img:    { 
-				data:       null, 
+				data:       '', 
 				contentType:  null
 			  },
 		birthday:   null,
@@ -33,7 +33,6 @@ App.factory('registerFty', function() {
 				if(interests[interest]===true)
 					newUser.interests.push(interest);
 			}
-			console.log(newUser.interests);
 		},
 		addBirthday: function(bday) {
 			newUser.birthday = bday;
@@ -41,7 +40,9 @@ App.factory('registerFty', function() {
 		submit: function(register) {
 			newUser.username = register.name;
 			newUser.password = register.password;
-			console.log(newUser);
+			$http.post('/users/new',newUser).success(function(output) {
+				console.log('Yaaa!' + output);
+			})
 		}
 	}
 })
