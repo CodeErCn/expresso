@@ -1,7 +1,7 @@
 App.controller('appController', function($scope, Storage, $location, sharedProperties){
     $scope.user = sharedProperties.getProperty();
     $scope.login = {};
-	$scope.browse = {};	                                   
+	$scope.browse = sharedProperties.getAll();	                                   
     $scope.login.errors = {};
     $scope.loginClicked = function(){                                               // login validations BEGIN ------>
         $scope.login.errors = {};                                                   // reset any prior errors
@@ -48,7 +48,9 @@ App.controller('appController', function($scope, Storage, $location, sharedPrope
     };
     $scope.getAllUsers = function(){         
         Storage.getAllUsers(function(data){                                   
-            $scope.browse = data;                                                             
+            sharedProperties.setAll(data); 
+            $location.path('/browse');  
+            console.log($scope.browse);                                                          
         });
     };
 });

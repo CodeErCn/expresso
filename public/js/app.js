@@ -2,13 +2,20 @@
 var App = angular.module('App', ['ngRoute'])
 	.service('sharedProperties', function () {
 	        var property = {};
+	        var browse = {};
 	        return {
 	            getProperty: function () {
 	                return property;
 	            },
 	            setProperty: function(value) {
 	                property = value;
-	            }
+	            },
+	            getAll: function () {
+	                return browse;
+	            },
+	            setAll: function (value) {
+	                browse = value;
+	            },
 	        };
 	    });
 

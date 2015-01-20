@@ -43,3 +43,21 @@ span.glyphicon {
 	margin-right: 5%;
 	color: lightgray;
 }
+
+.browse-img-container {
+	height: 20em;
+	width: 100%;
+}
+.browse-img {
+	max-width: 100%; 
+	max-height: 100%;
+}
+.browse-stats {
+	height: 10em;
+	overflow: scroll;
+}
+.browse-div {
+   float: none;
+   display: inline-block;
+   height: 450px;
+}
