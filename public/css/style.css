@@ -22,7 +22,7 @@
 }
 
 div.background {
-	height: 500px;
+	height: 450px;
 	top: 190px;
 	left: 0px;
 	background: url('../img/lolbackground.jpg') center no-repeat;
@@ -42,6 +42,10 @@ a.thumbnail {
 span.glyphicon {
 	margin-right: 5%;
 	color: lightgray;
+}
+
+span.green {
+	color: #32CD32;
 }
 
 .browse-img-container {

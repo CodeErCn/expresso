@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" ng-controller="registerCtrl">
   <div class="row">
     <h1 class="col-md-11 col-md-offset-1">Dating Site for gamers <small>by gamers</small></h1>
     <h4 class="col-md-11 col-md-offset-1">Step 3.</h4>
@@ -10,10 +10,10 @@
         </div>
         <div class="panel-body">
           Now please talk little bit more of your:
-          <input class="help-block" type="date"/>
+          <input class="help-block" type="date" ng-model="bday"/>
         </div>
       </div> 
-      <a class="btn btn-info btn-block" href="#/interest" role="button">next</a>
+      <a class="btn btn-info btn-block" role="button" ng-click="addBirthday()">next</a>
     </div>
   </div>
 </div>
