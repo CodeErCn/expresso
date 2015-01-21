@@ -169,3 +169,13 @@ div.thisIsImage {
 	border: 1px solid gray;
 	border-radius: 10px;
 }
+/* <--hotty.html */
+
+/* <-- MODAL  */
+input[type="text"] {
+	width: 90%;
+}
+
+div.space {
+	margin: 15px 0;
+}

@@ -1,12 +1,12 @@
 App.controller('registerCtrl', function($scope, $location, registerFty) {
   
     var interest = {
-        singing: false,
-        crying: false,
-        biking: false,
-        assassine: false,
-        firefly: false,
-        eating: false
+        Singing: false,
+        Crying: false,
+        Biking: false,
+        Assassinating: false,
+        Firefly: false,
+        Eating: false
     };
 
     $scope.getStarted = function() {
@@ -47,56 +47,56 @@ App.controller('registerCtrl', function($scope, $location, registerFty) {
     //JQuery for Interests page
     $('a.singing').on('click', function() {
         $(this).children('span').toggleClass('green'); 
-        if(interest.singing === true){
-            interest.singing = false;
+        if(interest.Singing === true){
+            interest.Singing = false;
         } else {
-            interest.singing = true;
+            interest.Singing = true;
         }
     });
 
     $('a.crying').on('click', function() {
         $(this).children('span').toggleClass('green');
-        if(interest.crying === true){
-            interest.crying = false;
+        if(interest.Crying === true){
+            interest.Crying = false;
         } else {
-            interest.crying = true;
+            interest.Crying = true;
         }
     });
 
     $('a.biking').on('click', function() {
         $(this).children('span').toggleClass('green');
-        if(interest.biking === true){
-            interest.biking = false;
+        if(interest.Biking === true){
+            interest.Biking = false;
         } else {
-            interest.biking = true;
+            interest.Biking = true;
         }
     });
 
     $('a.assassine').on('click', function() {
         $(this).children('span').toggleClass('green');
-        if(interest.assassine === true){
-            interest.assassine = false;
+        if(interest.Assassinating === true){
+            interest.Assassinating = false;
         } else {
-            interest.assassine = true;
+            interest.Assassinating = true;
         }
     });
 
     $('a.firefly').on('click', function() {
         $(this).children('span').toggleClass('green');
-        if(interest.firefly === true){
-            interest.firefly = false;
+        if(interest.Firefly === true){
+            interest.Firefly = false;
         } else {
-            interest.firefly = true;
+            interest.Firefly = true;
         }
 
     });
 
     $('a.eating').on('click', function() {
         $(this).children('span').toggleClass('green');
-        if(interest.eating === true){
-            interest.eating = false;
+        if(interest.Eating === true){
+            interest.Eating = false;
         } else {
-            interest.eating = true;
+            interest.Eating = true;
         }
     });
 

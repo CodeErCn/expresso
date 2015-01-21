@@ -119,5 +119,48 @@ App.controller('appController', function($scope, Storage, $location, sharedPrope
        sharedProperties.setHotty(hotty);
        $location.path('/hotty');
     }
+
+    // MODAL FOR UPDATING THE USER PROFILE
+    var interest = {
+        Singing: false,
+        Crying: false,
+        Biking: false,
+        Assassinating: false,
+        Firefly: false,
+        Eating: false
+    };
+
+    $scope.changes = function(userId) {
+        console.log(userId);
+        // Grabbing information
+        var aboutMe = $('input.aboutMe').val();
+        var gender = $('input[type="radio"]:checked').val();
+        var bday = $('input.bday').val();
+
+        if($('input.singing:checked')) {
+            interest.Singing = true;
+        }
+        if($('input.crying:checked')) {
+            interest.crying = true;
+        }
+        if($('input.biking:checked')) {
+            interest.Biking = true;
+        }
+        if($('input.assass:checked')) {
+            interest.Assassinating = true;
+        }
+        if($('input.firefly:checked')) {
+            interest.Firefly = true;
+        }
+        if($('input.eating:checked')) {
+            interest.Eating = true;
+        }
+        
+        console.log(aboutMe);
+        console.log(gender);
+        console.log(seeking);
+        console.log(bday);
+        console.log(interest);
+    }
 });
 
