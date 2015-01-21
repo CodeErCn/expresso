@@ -18,6 +18,15 @@
 .title {
 	display: inline-block;
 }
+.triforce {
+	width: 15px;
+	height: 15px;
+    background-image:  url(./../img/triforce.png);
+    background-size:   cover;                      
+    background-repeat: no-repeat;
+    background-position: center right;   
+/*    opacity:; .2em*/
+}
 /* <--- index.ejs */
 
 /* login.html validation */
@@ -79,9 +88,27 @@ span.green {
 /* <--- browse.html */
 
 /* main.html ---> */
-.jumbotron{
-	background-image: url('./img/sonasinging.png');
+.main-welcome {
+    background-image:  url(./../img/mariogame.jpg);
+    background-size:   cover;                      /* <------ */
+    background-repeat: no-repeat;
+    background-position: center center;   
+    opacity: .2em;
 }
+	.main-welcome h1 {
+		-webkit-text-fill-color: white; /* Will override color (regardless of order) */
+	   	-webkit-text-stroke-width: 2px;
+	   	-webkit-text-stroke-color: RGB(66, 66, 66);
+	}
+	.main-welcome p {
+		font-size: 2em;
+	}
+	.main-button-larger {
+	border: 1px solid RGB(58, 113, 72);
+	font-size: .7em;
+	height: 3em;
+	width: 15em;
+	}
 .padding-reset dt {
 	width: 5em;
 }
