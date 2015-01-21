@@ -56,5 +56,14 @@ App.factory('Storage', function($http){
 		return chosen;
 	};
 	// <--- Get all chosen hottie objects, or add a new one
+
+	// For updating the user profile
+	factory.updateProfile = function(data, callback) {
+		var uid = '/users/' + data.userId;
+		$http.post(uid, data).success(function(output) {
+			callback(output);
+		});
+	}
+	//<--- End updating user profile
 	return factory
 });

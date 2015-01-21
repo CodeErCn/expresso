@@ -71,7 +71,23 @@ module.exports = {
     // <-- END REGISTRATION PARTIAL FUNCTION
 	// EDIT PARTIAL FUNCTION
     update: function(req, res){
-    	console.log('got into update fxn in controller');
+    	var query = {"_id": req.params.id};
+        var update = {
+                gender:    req.body.gender,
+                seeking:    req.body.seeking,
+                birthday:   req.body.bday,
+                interests:  req.body.ints,
+                aboutme:    req.body.aboutMe,
+            }
+        var options = { new:true };
+
+        User.findOneAndUpdate(query, update, options, function(err,person) {
+            if(err) {
+                console.log("update error");
+            } else {
+                res.send(person);
+            }
+        })
 	},
     uploadFile: function(req, res){
         var id = req.params.id;

@@ -121,46 +121,50 @@ App.controller('appController', function($scope, Storage, $location, sharedPrope
     }
 
     // MODAL FOR UPDATING THE USER PROFILE
-    var interest = {
-        Singing: false,
-        Crying: false,
-        Biking: false,
-        Assassinating: false,
-        Firefly: false,
-        Eating: false
+
+    var updated = {
+        userId: '',
+        aboutMe:'',
+        gender: '',
+        seeking: '',
+        bday: '',
+        ints: []
     };
 
     $scope.changes = function(userId) {
-        console.log(userId);
+        // Assign the UserId
+        updated.userId = userId;
         // Grabbing information
-        var aboutMe = $('input.aboutMe').val();
-        var gender = $('input[type="radio"]:checked').val();
-        var bday = $('input.bday').val();
+        updated.aboutMe = $('input.aboutMe').val();
+        updated.gender = $('input.gender:checked').val();
+        updated.seeking = $('input.seeking:checked').val();
+        updated.bday = $('input.bday').val();
 
-        if($('input.singing:checked')) {
-            interest.Singing = true;
+        if($('input.singing:checked').val()) {
+            updated.ints.push('Singing');
         }
-        if($('input.crying:checked')) {
-            interest.crying = true;
+        if($('input.crying:checked').val()) {
+            updated.ints.push('Crying');
         }
-        if($('input.biking:checked')) {
-            interest.Biking = true;
+        if($('input.biking:checked').val()) {
+            updated.ints.push('Biking');
         }
-        if($('input.assass:checked')) {
-            interest.Assassinating = true;
+        if($('input.assass:checked').val()) {
+            updated.ints.push('Assassinating');
         }
-        if($('input.firefly:checked')) {
-            interest.Firefly = true;
+        if($('input.firefly:checked').val()) {
+            updated.ints.push('Firefly');
         }
-        if($('input.eating:checked')) {
-            interest.Eating = true;
+        if($('input.eating:checked').val()) {
+            updated.ints.push('Eating');
         }
-        
-        console.log(aboutMe);
-        console.log(gender);
-        console.log(seeking);
-        console.log(bday);
-        console.log(interest);
+
+        Storage.updateProfile(updated, function(data){
+            sharedProperties.setProperty(data);
+            $scope.user = sharedProperties.getProperty();
+        });
     }
+
+    updated.ints = [];
 });
 
