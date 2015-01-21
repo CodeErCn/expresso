@@ -110,3 +110,18 @@ span.green {
    height: 230px;
 }
 /* <--- main.html */
+
+/* edit.html ---> */
+.margin-auto {
+	margin: 0 auto;
+}
+td .about-me-input {
+	width:100%;
+	height:100px;
+}
+
+td .birthday-input {
+	width: 30%;
+}
+
+/* <--- edit.html */
