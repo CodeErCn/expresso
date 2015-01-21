@@ -9,7 +9,7 @@ module.exports = function Routes(app){
     app.post('/users/new',         	function(req, res) { users.create(req, res); 	});
     app.post('/users/:id',          function(req, res) { users.update(req, res);	});
     app.post('/uploadFile/:id',     function(req, res) { users.uploadFile(req,res);	});
-    app.post('/login',        		function(req, res) { users.login(req, res);		});
+    app.post('/login',        		  function(req, res) { users.login(req, res);		});
     app.post('/addChosen',        	function(req, res) { users.addChosen(req,res);	});
     app.post('/getAllChosen',       function(req, res) { users.getAllChosen(req,res);});
 }
