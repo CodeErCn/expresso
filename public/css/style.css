@@ -157,20 +157,24 @@ span.green {
 /* <--- main.html */
 
 /* chat.html ---> */
-.chat_history {
+.chat_history_container {	
 	height: 500px;
 	border: 1px solid RGB(51, 73, 86);
 	border-radius: 2em;
-}
-.chat_history {
+	background-image:  url(./../img/pacman.png);
+    background-size:   cover;                      /* <------ */
+    background-repeat: no-repeat;
+    background-position: center center;  
 	padding-top: 1em;
 	padding-left: 1em;
-	padding-bottom: 1em;
 	padding-right: 1em;
+	padding-bottom: 8em;
+}
+.chat_history {
+	width: 100%;
+	height: 100%;
 	overflow: scroll;
 	font-size: 1.5em;
-	margin-bottom: 1em;
-	background-color: RGB(230, 230, 230);
 }
 .chats {
 	padding-left: 3em;
