@@ -24,7 +24,7 @@ App.controller('chatController', function($scope, chatFactory, sharedProperties)
     // when new user logs in, get their login
     io.on('server_added_user', function(newbie){
         $scope.$apply(function () {     
-            var stringMsg = newbie.user.name + 'has joined the chat.'
+            var stringMsg = newbie.user.name + ' has joined the chat.'
             var newMsg = { user: 'Notice', message: stringMsg };
             $scope.allMessages.push(newMsg);            
             $scope.userList.push(newbie.user);
@@ -33,7 +33,7 @@ App.controller('chatController', function($scope, chatFactory, sharedProperties)
     // when user disconnects, notify
     io.on('server_deleted_user', function(info){
         $scope.$apply(function () {     
-            var stringMsg = info.user + 'has left the chat.'
+            var stringMsg = info.user + ' has left the chat.'
             var newMsg = { user: 'Notice', message: stringMsg };
             $scope.allMessages.push(newMsg);            
             $scope.userList = info.newList;

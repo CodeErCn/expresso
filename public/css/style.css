@@ -133,18 +133,30 @@ span.green {
 	border-radius: 2em;
 }
 .chat_history {
-	padding-top: 2em;
-	padding-left: 4em;
+	padding-top: 1em;
+	padding-left: 1em;
 	padding-bottom: 1em;
-	padding-right: 4em;
+	padding-right: 1em;
 	overflow: scroll;
 	font-size: 1.5em;
 	margin-bottom: 1em;
+	background-color: RGB(230, 230, 230);
 }
 .chats {
 	padding-left: 3em;
 }
 .online {
+	font-size: 1em;
+	padding-left: 2em;
 	border: 1px solid RGB(137, 138, 138);	
+	background-color: RGB(245, 245, 245);
 }
+.bubbles {
+	display: block;
+	border: 1px solid RGB(208, 208, 208);
+	padding: .3em;
+	background-color: RGB(245, 245, 245);
+	border-radius: 1em;
+}
+
 /* <--- chat.html */

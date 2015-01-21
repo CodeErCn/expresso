@@ -8,14 +8,13 @@
 
 	<!--Chat Room-->
 	<div class='row'>
-		<div class='col-md-8 col-md-offset-1'>
+		<div class='col-md-6 col-md-offset-1'>
 			<h1>Chat with Hotties</h1>
 			<div class='chat_history'>
-				<ul class="list-unstyled">
-					<li ng-repeat="msg in allMessages">
-						{{ msg.user }}: {{ msg.message }}
-					</li>
-				</ul> 
+				<p class='bubbles' ng-style="msg.user == user.username && {'text-align': 'right'} ||
+              msg.user !== user.username && {'text-align': 'left'}" ng-repeat="msg in allMessages">
+					{{ msg.user }}: {{ msg.message }}
+				</p>
 			</div>
 			<div class='chats float-bottom'>
 			<!--Chat Room - Text Area-->
@@ -23,7 +22,7 @@
 				<button ng-click="addNew(newMsg)" class="btn btn-primary">Send</button>
 			</div>
 		</div>
-		<div class='col-md-3'>
+		<div class='col-md-4'>
 			<h2>Users Online</h2>
 			<ul class="online list-unstyled">
 				<li ng-repeat="people in userList">
