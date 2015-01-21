@@ -232,8 +232,23 @@ td .birthday-input {
 
 /* hotty.html ---> */
 div.thisIsImage {
+	width: 240;
 	border: 1px solid gray;
 	border-radius: 10px;
+}
+.phone {
+	height: 500px;
+	width: auto;
+	border: 1px solid RGB(51, 73, 86);
+	border-radius: 2em;
+	background-image:  url(./../img/phone.png);
+    background-size:   cover;                      /* <------ */
+    background-repeat: no-repeat;
+    background-position: center center;  
+}
+.phone img {
+	padding-top: 100px;
+	padding-bottom: 50px;
 }
 /* <--hotty.html */
 
