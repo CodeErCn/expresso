@@ -28,21 +28,6 @@
 		<script type="text/javascript" src="./js/factories/factory.js"></script>
 		<script type="text/javascript" src="./js/factories/rgFactory.js"></script>
 		<script type="text/javascript" src="./js/factories/chatFactory.js"></script>
-
-	<!-- io script (io commented out because it can be started within the controller rather than connected globally) -->
-    <!-- <script type="text/javascript">
-		// io = io.connect();
-		// io.emit('client_sent', {msg: 'Client has emitted.'});
-		// io.on('server_sent', function(received){
-		// 	console.log(received);
-		// });
-    </script> -->
-	 <!-- jquery script -->
-	<!--<script type="text/javascript">
-		// $( document ).ready(function(){
-	 // 		console.log('Jquery is ready.');
-	 // 	})
-	</script> -->
 	</head>
 	<body>
 		<div class="container" id="app" ng-app="App">
@@ -51,8 +36,8 @@
 					<img class='logo' width='50' height='50' src='./img/expresso_logo.png'>
 					<h1 class='title'><%= title %></h1>
 				</div>
-				<div class="links col-md-3 col-md-offset-4">
-					<a href="#/login">Login</a> | <a href="#/">Register</a> | <a href="#/createtester">Create TESTING</a>
+				<div class="links col-md-2 col-md-offset-6">
+					<a href="#/login">Login</a> | <a href="#/">Register</a>
 				</div>
 			</div>
 			<div ng-view=""></div>

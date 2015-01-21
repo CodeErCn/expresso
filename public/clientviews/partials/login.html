@@ -11,18 +11,18 @@
       <div class="panel-body">
           Please input your information to log in:
           <ul ui-if="!!login.errors.length">
-            <li ng-repeat="error in login.errors" ng-bind="error.msg"></li>
+            <li class='login-error' ng-repeat="error in login.errors" ng-bind="error.msg"></li>
           </ul>
           <div class="form-group">
             <label>User Name</label>
             <form name="usernameForm">
-              <input type="text" name="username" ng-model="login.username" class="form-control" placeholder="Enter User Name" ng-invalid="emptyUser" />
+              <input type="text" name="username" ng-model="login.username" class="form-control login-input" placeholder="Enter User Name" ng-invalid="emptyUser" />
             </form>
           </div>
           <div class="form-group">
             <label>Password</label>
             <form name="passwordForm">
-              <input type="password" name="password" ng-model="login.password" class="form-control" placeholder="Password" ng-invalid="emptyPW" />
+              <input type="password" name="password" ng-model="login.password" class="form-control login-input" placeholder="Password" ng-invalid="emptyPW" />
             </form>
           </div>
         </div>

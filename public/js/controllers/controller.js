@@ -1,5 +1,6 @@
 App.controller('appController', function($scope, Storage, $location, sharedProperties, $upload){
     $scope.user = sharedProperties.getProperty();
+    $scope.hotty = sharedProperties.getHotty();
     $scope.login = {};
 	$scope.browse = sharedProperties.getAll();	
     if((typeof $scope.user.chosen !== "undefined") && ($scope.user.chosen.length !== 0)){ 
@@ -34,6 +35,7 @@ App.controller('appController', function($scope, Storage, $location, sharedPrope
                 }
                 else{
                     sharedProperties.setProperty(data);                             // Set shardproperties object
+                    $('.links').html('<a href="#/main"> Dashboard </a> | <a href="#/logoff"> Logout </a>');
                     $location.path('/main');                                        // reroute to main
                 }
             }));
@@ -70,7 +72,27 @@ App.controller('appController', function($scope, Storage, $location, sharedPrope
             console.log(data);                               // set the scope with the response
         }, chooserID, chosenArr);
     };
-
+    $scope.removeChosen = function(chosenID){
+        var chosenArr = $scope.user.chosen;
+        for (var i = 0; i < chosenArr.length; i++) {
+            if(chosenArr[i] == chosenID){
+                var idx = i;
+            }
+        };
+        delete chosenArr[idx];
+        $scope.user.chosen = chosenArr;
+        sharedProperties.setProperty($scope.user);
+        $scope.user = sharedProperties.getProperty();
+        var chooserID = $scope.user._id;  
+        Storage.addChosen(function(data){                                             
+            console.log(data);                               // set the scope with the response
+        }, chooserID, chosenArr);
+        if((typeof $scope.user.chosen !== "undefined") && ($scope.user.chosen.length !== 0)){ 
+            Storage.getAllChosen($scope.user.chosen, function(data){
+                $scope.hotties = data;
+            });                                                                         // pass in an array of id strings, and retrieve the people objects from the array.
+        }
+    };
     // FILE UPLOAD BEGIN --->
     $scope.$watch('myFiles', function() {
         if(typeof $scope.myFiles !== "undefined"){
@@ -91,4 +113,54 @@ App.controller('appController', function($scope, Storage, $location, sharedPrope
         }
     });
     // <--- END FILE UPLOAD
+
+    // CLICK IMAGE TO VIEW PROFILE FROM MAIN HTML && BOWERSE HTML 
+    $scope.viewHotty = function(hotty) {
+       sharedProperties.setHotty(hotty);
+       $location.path('/hotty');
+    }
+
+    // MODAL FOR UPDATING THE USER PROFILE
+    var interest = {
+        Singing: false,
+        Crying: false,
+        Biking: false,
+        Assassinating: false,
+        Firefly: false,
+        Eating: false
+    };
+
+    $scope.changes = function(userId) {
+        console.log(userId);
+        // Grabbing information
+        var aboutMe = $('input.aboutMe').val();
+        var gender = $('input[type="radio"]:checked').val();
+        var bday = $('input.bday').val();
+
+        if($('input.singing:checked')) {
+            interest.Singing = true;
+        }
+        if($('input.crying:checked')) {
+            interest.crying = true;
+        }
+        if($('input.biking:checked')) {
+            interest.Biking = true;
+        }
+        if($('input.assass:checked')) {
+            interest.Assassinating = true;
+        }
+        if($('input.firefly:checked')) {
+            interest.Firefly = true;
+        }
+        if($('input.eating:checked')) {
+            interest.Eating = true;
+        }
+        
+        console.log(aboutMe);
+        console.log(gender);
+        console.log(seeking);
+        console.log(bday);
+        console.log(interest);
+    }
 });
+

@@ -1,24 +1,69 @@
 <div id='main' class='container' ng-controller='appController'>	
+
+	<!-- ********  MODAL FOR EDIT ******** -->
+	<div class="modal fade" id="myModal">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title">Edit your profile...</h4>
+	      </div>
+	      <div class="modal-body">
+	        <dl class="padding-reset dl-horizontal">
+	        	<div class="space">
+							<dt>About Me:</dt>
+							<dd><input class="aboutMe" type="text"/></dd>
+						</div>
+						<div class="space">
+						<dt>Gender:</dt>
+							<dd><input class="gender" type="radio" name="gender"/> Male</dd>
+							<dd><input class="gender" type="radio" name="gender"/> Female</dd>
+						<div class="space">
+							<dt>Seeking:</dt>
+							<dd><input class="seeking" type="radio" name="seeking"/> Male</dd>
+							<dd><input class="seeking" type="radio" name="seeking"/> Female</dd>
+							<dd><input class="seeking" type="radio" name="seeking"/> Doesn't Matter</dd>
+						</div>	
+						<div class="space">
+							<dt>Birthday:</dt>
+							<dd><input class="bday" type="date"/></dd>
+						</div>
+						<div class="space">
+							<dt>Interests:</dt>
+							<dd><input class="singing" type="radio"/> Singing</dd>
+		        	<dd><input class="crying" type="radio"/> Crying</dd>
+		        	<dd><input class="biking" type="radio"/> Biking</dd>
+		        	<dd><input class="assass" type="radio"/> Assassinating</dd>
+		        	<dd><input class="firefly" type="radio"/> Firefly</dd>
+		        	<dd><input class="eating" type="radio"/> Eating</dd>
+	        	</div>
+	        </dl>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="changes(user._id)">Save changes</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<!-- ********  MODAL FOR EDIT ******** -->
+
 	<!--Header-->
-	<div class='row text-right'>
-		<a href="#/logoff">Log Off</a>
-	</div>
-	<div class="jumbotron">
+	<div class="main-welcome jumbotron">
 		<h1>Welcome, {{ user.username }}</h1>
 		<p>You have entered the virtual dating world of expresso. Meet and sip on hot, flaming singles that have the same interest as you.</p>
-		<p><button class='btn btn-danger' ng-click='getAllUsers()'>Meet Your Compatibles</button></p>
+		<p class="text-center margin-top"><button class='btn btn-success main-button-larger' ng-click='getAllUsers()'>Meet Your Compatibles</button></p>
 	</div>
 
 	<!--Left Column-->
 	<div class="row">
 		<div class="col-md-4">
-		<img ng-hide="user.photo == null" ng-src="data:{{user.img.contentType}};base64,{{user.photo}}" class="img-rounded img-responsive">
+		<div class='img-container'>
+			<img ng-hide="user.photo == null" ng-src="data:{{user.img.contentType}};base64,{{user.photo}}" class="img-img img-rounded img-responsive">
+		</div>
 		<form>
 			<div class="form-group">
 				<h3>Hello, {{ user.username }}: </h3>
-				<div class="controls">
-					<button ng-file-select ng-model="myFiles" class="btn btn-default">Upload Image</button>
-				</div>
 			</div>
 			<div class="stats">
 				<h4>Your profile:</h4>
@@ -34,29 +79,37 @@
 					<dt>Interests: </dt>
 						<dd ng-repeat="interest in user.interests" ng-repeat="interest"><span ng-bind="interest"></span></dd>
 				</dl>
-			<a href="#/edit" class="btn btn-primary">Edit Your Info
-				<span class="glyphicon glyphicon-pencil"></span></a>
 			</div>
+			<!-- Button trigger modal -->
+			<button class="inline-block btn btn-primary" type="button" data-toggle="modal" data-target="#myModal">
+				<span class="glyphicon glyphicon-pencil"></span> Edit Your Info
+			</button>
+			<button class='inline-block btn btn-info' ng-file-select ng-model="myFiles" class="btn btn-default"> Change Image
+			</button>
 		</form>
 		</div>
 		<div class="col-md-8 main-bordered">
 			<h4>Liked Hotties</h4>
-			<div class="col-md-4" ng-repeat="hottie in hotties" class="main-div">
+			<div class="col-md-6 repeat" ng-repeat="hottie in hotties" class="browse-div">
 				<div class="thumbnail">
-					<div class="main-img-container">
-						<img class="main-img" ng-hide="hottie.photo == null" ng-src="data:{{hottie.img.contentType}};base64,{{hottie.photo}}">
+					<div class="browse-img-container">
+						<a ng-click="viewHotty(hottie)">
+							<img class="browse-img" ng-hide="hottie.photo == null" ng-src="data:{{hottie.img.contentType}};base64,{{hottie.photo}}">
+						</a>
 					</div>
 					<div class="caption">
-						<div class='main-stats'>
+						<div class='browse-stats'>
 							<h3>{{ hottie.username }}</h3>
 							<p class="aboutme">{{ hottie.aboutme }}</p>
 						</div>
-						<button class="btn btn-success text-center">
-							<span class="glyphicon glyphicon-comment"></span>Chat
-						</button>
-						<button class="btn btn-default text-center" ng-click="removeChosen(hottie._id)">
-							<span class="glyphicon glyphicon-remove"></span>Remove
-						</button>
+						<p class="text-center">
+							<a class="btn btn-success text-center" role="button" href="#/chat">
+								<span class="glyphicon glyphicon-comment"></span> Chat
+							</a>
+							<button class="btn btn-default text-center" ng-click="removeChosen(hottie._id)">
+								<span class="glyphicon glyphicon-remove"></span> Remove
+							</button>
+						</p>
 					</div>
 				</div>
 			</div>

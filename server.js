@@ -11,7 +11,7 @@ app.configure(function() {                                  // configuring app
 
     // app.use(express.session( { secret: 'ninja' }));
 
-    // app.use(express.bodyParser());
+    app.use(express.bodyParser());
     app.use(express.json());                                // handles POST data (replaces bodyParser in Connect 3.0)                         
     app.use(express.urlencoded({ extended: true }));        // handles POST data (replaces bodyParser in Connect 3.0)
 
