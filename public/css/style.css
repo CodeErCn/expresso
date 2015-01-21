@@ -110,3 +110,25 @@ span.green {
    height: 230px;
 }
 /* <--- main.html */
+
+/* chat.html ---> */
+.chat_history {
+	height: 500px;
+	border: 1px solid RGB(51, 73, 86);
+	border-radius: 2em;
+}
+.chat_history {
+	padding-top: 2em;
+	padding-left: 4em;
+	padding-bottom: 1em;
+	padding-right: 4em;
+	overflow: scroll;
+	font-size: 1.5em;
+	margin-bottom: 1em;
+}
+.chats {
+	padding-left: 3em;
+}
+.online {
+	border: 1px solid RGB(137, 138, 138);	
+}

@@ -7,23 +7,29 @@
 	</div>
 
 	<!--Chat Room-->
-	<div class='row col-md-8 col-md-offset-2'>
-	<h1>Chat with Hottie 1</h1>
-	<div class='chat_history'>
-
-	<!-- <ul>
-      	<li ng-repeat="message in messages track by $date">
-      		{{ message }}
-      	</li>
-    </ul> -->
-		
+	<div class='row'>
+		<div class='col-md-8 col-md-offset-1'>
+			<h1>Chat with Hotties</h1>
+			<div class='chat_history'>
+				<ul class="list-unstyled">
+					<li ng-repeat="msg in allMessages">
+						{{ msg.user }}: {{ msg.message }}
+					</li>
+				</ul> 
+			</div>
+			<div class='chats float-bottom'>
+			<!--Chat Room - Text Area-->
+				<input type="text" class="message_string col-md-10" ng-model="newMsg" placeholder="Write a message here..."/ >
+				<button ng-click="addNew(newMsg)" class="btn btn-primary">Send</button>
+			</div>
+		</div>
+		<div class='col-md-3'>
+			<h2>Users Online</h2>
+			<ul class="online list-unstyled">
+				<li ng-repeat="people in userList">
+					{{ people.name }}
+				</li>
+			</ul> 
+		</div>
 	</div>
-
-	<!--Chat Room - Text Area-->
-	<form class='message_form col-md-12' style="width: 109%" ng-submit="addMessage()" class="row inline-block">
-		<input type="text" class="message_string col-md-10" ng-model="user.message"placeholder="Write a message here...">
-		<button type="submit" class="btn btn-primary">Send</button>
-	</form>
-	</div><!--End of Row <div>-->
-
 </div>
