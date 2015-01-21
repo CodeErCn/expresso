@@ -70,7 +70,27 @@ App.controller('appController', function($scope, Storage, $location, sharedPrope
             console.log(data);                               // set the scope with the response
         }, chooserID, chosenArr);
     };
-
+    $scope.removeChosen = function(chosenID){
+        var chosenArr = $scope.user.chosen;
+        for (var i = 0; i < chosenArr.length; i++) {
+            if(chosenArr[i] == chosenID){
+                var idx = i;
+            }
+        };
+        delete chosenArr[idx];
+        $scope.user.chosen = chosenArr;
+        sharedProperties.setProperty($scope.user);
+        $scope.user = sharedProperties.getProperty();
+        var chooserID = $scope.user._id;  
+        Storage.addChosen(function(data){                                             
+            console.log(data);                               // set the scope with the response
+        }, chooserID, chosenArr);
+        if((typeof $scope.user.chosen !== "undefined") && ($scope.user.chosen.length !== 0)){ 
+            Storage.getAllChosen($scope.user.chosen, function(data){
+                $scope.hotties = data;
+            });                                                                         // pass in an array of id strings, and retrieve the people objects from the array.
+        }
+    };
     // FILE UPLOAD BEGIN --->
     $scope.$watch('myFiles', function() {
         if(typeof $scope.myFiles !== "undefined"){
