@@ -111,6 +111,9 @@ span.green {
    display: inline-block;
    height: 230px;
 }
+.clickies {
+	text-align: center;
+}
 /* <--- main.html */
 
 /* chat.html ---> */
