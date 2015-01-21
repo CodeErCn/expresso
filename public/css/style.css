@@ -186,7 +186,7 @@ td .birthday-input {
 
 /* chat.html ---> */
 .chat_history_container {	
-	height: 500px;
+	height: 600px;
 	border: 1px solid RGB(51, 73, 86);
 	border-radius: 2em;
 	background-image:  url(./../img/pacman.png);
@@ -196,7 +196,7 @@ td .birthday-input {
 	padding-top: 1em;
 	padding-left: 1em;
 	padding-right: 1em;
-	padding-bottom: 8em;
+	padding-bottom: 9em;
 }
 .chat_history {
 	width: 100%;
@@ -205,7 +205,15 @@ td .birthday-input {
 	font-size: 1.5em;
 }
 .chats {
-	padding-left: 3em;
+	width: 100%;
+}
+.chats input[type="text"]{
+	width: 75%;
+	display: inline-block;
+}
+.chats button {
+	width: 20%;
+	display: inline-block;
 }
 .online {
 	font-size: 1em;
@@ -220,7 +228,6 @@ td .birthday-input {
 	background-color: RGB(245, 245, 245);
 	border-radius: 1em;
 }
-
 /* <--- chat.html */
 
 /* hotty.html ---> */

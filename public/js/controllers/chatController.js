@@ -1,6 +1,5 @@
 App.controller('chatController', function($scope, chatFactory, sharedProperties) {
     $scope.allMessages = [];
-    // $scope.userList = [];
     $scope.user = sharedProperties.getProperty();
     io = io.connect();
     io.emit('connection', { 'name': $scope.user.username });

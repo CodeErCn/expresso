@@ -25,9 +25,11 @@ module.exports = function Routes(app){
                 var idx = i;
             }
         };
-        var leaver = userList[idx].name;
-        userList.splice(idx, 1);
-        req.io.broadcast('server_deleted_user', { 'user': leaver, 'newList': userList });
+        if(userList.length && typeof idx !== 'undefined'){
+            var leaver = userList[idx].name;
+            userList.splice(idx, 1);
+            req.io.broadcast('server_deleted_user', { 'user': leaver, 'newList': userList });
+        }
     });
     //enter a new user into server, by their socket id as identifier of object
     app.io.route('msgSubmit', function(req){

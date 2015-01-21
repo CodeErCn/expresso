@@ -2,7 +2,7 @@
 <div id='main' class='container' ng-controller='chatController'>
 	<!--Header-->
 	<div class='row text-right' ng-controller='appController'>
-		<a href="#/browse" class="btn btn-danger" ng-click='getAllUsers()' role="button">Meet Other Compatibles</a>
+		<button class='btn btn-danger main-button-larger' ng-click='getAllUsers()'>Meet Your Compatibles</button>
 	</div>
 
 	<!--Chat Room-->
@@ -19,7 +19,7 @@
 			</div>
 			<div class='chats float-bottom'>
 			<!--Chat Room - Text Area-->
-				<input type="text" class="message_string col-md-10" ng-model="newMsg" placeholder="Write a message here..."/ >
+				<input type="text" class="message_string" ng-model="newMsg" placeholder="Write a message here..."/ >
 				<button ng-click="addNew(newMsg)" class="btn btn-primary">Send</button>
 			</div>
 		</div>
