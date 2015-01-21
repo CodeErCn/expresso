@@ -33,6 +33,15 @@
 .ng-invalid * {
 	border: 1px solid #FA787E;
 }
+input[type="password"].login-input {
+	width: 100%;
+}
+input[type="text"].login-input {
+	width: 100%;
+}
+.login-error {
+	color: RGB(255, 66, 73);
+}
 
 /* initial registration styling ---> */
 div.background {
@@ -56,6 +65,9 @@ a.thumbnail {
 span.glyphicon {
 	margin-right: 5%;
 	color: lightgray;
+}
+input[type="text"].register-input {
+	width: 100%;
 }
 /* <--- initial registration styling */
 
@@ -203,6 +215,7 @@ div.thisIsImage {
 /* <--hotty.html */
 
 /* <-- MODAL  */
+
 input[type="text"] {
 	width: 90%;
 }
