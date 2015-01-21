@@ -12,13 +12,12 @@
 	<!--Left Column-->
 	<div class="row">
 		<div class="col-md-4">
-		<img ng-hide="user.photo == null" ng-src="data:{{user.img.contentType}};base64,{{user.photo}}" class="img-rounded img-responsive">
+		<div class='img-container'>
+			<img ng-hide="user.photo == null" ng-src="data:{{user.img.contentType}};base64,{{user.photo}}" class="img-img img-rounded img-responsive">
+		</div>
 		<form>
 			<div class="form-group">
 				<h3>Hello, {{ user.username }}: </h3>
-				<div class="controls">
-					<button ng-file-select ng-model="myFiles" class="btn btn-default">Upload Image</button>
-				</div>
 			</div>
 			<div class="stats">
 				<h4>Your profile:</h4>
@@ -34,9 +33,10 @@
 					<dt>Interests: </dt>
 						<dd ng-repeat="interest in user.interests" ng-repeat="interest"><span ng-bind="interest"></span></dd>
 				</dl>
-			<a href="#/edit" class="btn btn-primary">Edit Your Info
-				<span class="glyphicon glyphicon-pencil"></span></a>
 			</div>
+			<a href="#/edit" class="inline-block btn btn-primary">Edit Your Info
+				<span class="glyphicon glyphicon-pencil"></span></a>
+			<button class='inline-block btn btn-info' ng-file-select ng-model="myFiles" class="btn btn-default">Change Image</button>
 		</form>
 		</div>
 		<div class="col-md-8 main-bordered">
