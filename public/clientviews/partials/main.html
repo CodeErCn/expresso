@@ -6,7 +6,7 @@
 	<div class="jumbotron">
 		<h1>Welcome, {{ user.username }}</h1>
 		<p>You have entered the virtual dating world of expresso. Meet and sip on hot, flaming singles that have the same interest as you.</p>
-		<p><button class='btn' ng-click='getAllUsers()'>Meet Your Compatibles</button></p>
+		<p><button class='btn btn-danger' ng-click='getAllUsers()'>Meet Your Compatibles</button></p>
 	</div>
 
 	<!--Left Column-->
@@ -15,9 +15,9 @@
 		<img ng-hide="user.photo == null" ng-src="data:{{user.img.contentType}};base64,{{user.photo}}" class="img-rounded img-responsive">
 		<form>
 			<div class="form-group">
-				<h4>Hello, {{ user.username }}: </h4>
+				<h3>Hello, {{ user.username }}: </h3>
 				<div class="controls">
-					<button ng-file-select ng-model="myFiles">Upload Image</button>
+					<button ng-file-select ng-model="myFiles" class="btn btn-default">Upload Image</button>
 				</div>
 			</div>
 			<div class="stats">
@@ -34,26 +34,28 @@
 					<dt>Interests: </dt>
 						<dd ng-repeat="interest in user.interests" ng-repeat="interest"><span ng-bind="interest"></span></dd>
 				</dl>
+			<a href="#/edit" class="btn btn-primary">Edit Your Info
+				<span class="glyphicon glyphicon-pencil"></span></a>
 			</div>
 		</form>
 		</div>
 		<div class="col-md-8 main-bordered">
 			<h4>Liked Hotties</h4>
-			<div class="col-md-6" ng-repeat="hottie in hotties" class="browse-div">
+			<div class="col-md-4" ng-repeat="hottie in hotties" class="main-div">
 				<div class="thumbnail">
-					<div class="browse-img-container">
-						<img class="browse-img" ng-hide="hottie.photo == null" ng-src="data:{{hottie.img.contentType}};base64,{{hottie.photo}}">
+					<div class="main-img-container">
+						<img class="main-img" ng-hide="hottie.photo == null" ng-src="data:{{hottie.img.contentType}};base64,{{hottie.photo}}">
 					</div>
 					<div class="caption">
-						<div class='browse-stats'>
+						<div class='main-stats'>
 							<h3>{{ hottie.username }}</h3>
 							<p class="aboutme">{{ hottie.aboutme }}</p>
 						</div>
-						<button class="btn btn-success">
-							<span class="glyphicon glyphicon-message">Chat
+						<button class="btn btn-success text-center">
+							<span class="glyphicon glyphicon-comment"></span>Chat
 						</button>
-						<button class="btn btn-warning" ng-click="removeChosen(hottie._id)">
-							<span class="glyphicon glyphicon-fire"></span>Remove
+						<button class="btn btn-default text-center" ng-click="removeChosen(hottie._id)">
+							<span class="glyphicon glyphicon-remove"></span>Remove
 						</button>
 					</div>
 				</div>

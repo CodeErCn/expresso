@@ -67,6 +67,7 @@ span.green {
 .browse-stats {
 	height: 10em;
 	overflow: scroll;
+	text-align: center;
 }
 .browse-div {
    float: none;
@@ -76,6 +77,9 @@ span.green {
 /* <--- browse.html */
 
 /* main.html ---> */
+.jumbotron{
+	background-image: url('./img/sonasinging.png');
+}
 .padding-reset dt {
 	width: 5em;
 }
@@ -87,5 +91,22 @@ span.green {
 	border: 1px solid RGB(51, 73, 86);
 	border-radius: 1em;
 	height: auto;
+}
+.main-img-container {
+	max-height: 150px;
+	max-width: 100%;
+}
+	.main-img {
+		text-align: center;
+	}
+.main-stats {
+	height: 140px;
+	overflow: scroll;
+	text-align: center;
+}
+.main-div {
+   float: none;
+   display: inline-block;
+   height: 230px;
 }
 /* <--- main.html */

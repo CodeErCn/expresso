@@ -11,9 +11,9 @@ app.configure(function() {                                  // configuring app
 
     // app.use(express.session( { secret: 'ninja' }));
 
-    app.use(express.bodyParser());
-    app.use(express.json());                                // handles POST data                          
-    app.use(express.urlencoded({ extended: true }));        // handles POST data 
+    // app.use(express.bodyParser());
+    app.use(express.json());                                // handles POST data (replaces bodyParser in Connect 3.0)                         
+    app.use(express.urlencoded({ extended: true }));        // handles POST data (replaces bodyParser in Connect 3.0)
 
     //app.use(favicon(__dirname + '/public/favicon.ico'));  // uncomment after placing your favicon in /public
 
