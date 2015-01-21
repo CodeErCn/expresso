@@ -34,6 +34,7 @@ App.controller('appController', function($scope, Storage, $location, sharedPrope
                 }
                 else{
                     sharedProperties.setProperty(data);                             // Set shardproperties object
+                    $('.links').html('<a href="#/main"> Dashboard </a> | <a href="#/logoff"> Logout </a>');
                     $location.path('/main');                                        // reroute to main
                 }
             }));
