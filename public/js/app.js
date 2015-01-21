@@ -3,6 +3,7 @@ var App = angular.module('App', ['ngRoute', 'angularFileUpload'])
 	.service('sharedProperties', function () {
 	        var property = {};
 	        var browse = {};
+	        var hotty = {};
 	        return {
 	            getProperty: function () {
 	                return property;
@@ -15,6 +16,12 @@ var App = angular.module('App', ['ngRoute', 'angularFileUpload'])
 	            },
 	            setAll: function (value) {
 	                browse = value;
+	            },
+	            getHotty: function () {
+	            	return hotty;
+	            },
+	            setHotty: function (value) {
+	            		hotty = value;
 	            },
 	        };
 	    });
@@ -68,6 +75,10 @@ App.config(function($routeProvider){
 		.when('/createtester',
 		{
 			templateUrl: '/clientviews/partials/createtester.html'
+		})
+		.when('/hotty',
+		{
+			templateUrl: '/clientviews/partials/hotty.html'
 		})
 		.otherwise({
 			redirectTo: '/'

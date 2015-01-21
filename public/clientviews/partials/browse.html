@@ -1,4 +1,9 @@
 <div id='main' class='container' ng-controller='appController'>
+<!--Header-->
+<div class='row text-right'>
+	<a href="#/main">Go Back to Your Dashboard</a> |
+	<a href="#/logoff">Log Off</a>
+</div>
 <!--Chat Bar /sync with main.html-->
 <!-- 	<div class='row'>
 	<p>
@@ -18,7 +23,9 @@
 	<div class="col-md-3" ng-repeat="person in browse" class="browse-div"> <!--Add user to users-->
 		<div class="thumbnail">
 			<div class="browse-img-container">
-				<img class="browse-img" ng-hide="person.photo == null" ng-src="data:{{person.img.contentType}};base64,{{person.photo}}">
+				<a ng-click="viewHotty(person)">
+					<img class="browse-img" ng-hide="person.photo == null" ng-src="data:{{person.img.contentType}};base64,{{person.photo}}">
+				</a>
 			</div>
 			<div class="caption">
 				<div class='browse-stats'>
@@ -26,10 +33,12 @@
 					<p class="aboutme">{{ person.aboutme }}</p>
 				</div>
 				<p class="text-center">
-					<a href="#/chat" class="btn btn-success">Chat
-						<span class="glyphicon glyphicon-comment"></span></a>
-					<a class="btn btn-danger" ng-click="addChosen(person._id)">Favorite
-						<span class="glyphicon glyphicon-fire"></span></a>
+					<a href="#/chat" class="btn btn-success" role="button">Chat
+						<span class="glyphicon glyphicon-message"></span>
+					</a>
+					<button class="btn btn-danger" ng-click="addChosen(person._id)">Favorite
+						<span class="glyphicon glyphicon-fire"></span>
+					</button>
 				</p>
 			</div>
 		</div>

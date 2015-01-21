@@ -163,3 +163,9 @@ span.green {
 }
 
 /* <--- chat.html */
+
+/* hotty.html ---> */
+div.thisIsImage {
+	border: 1px solid gray;
+	border-radius: 10px;
+}

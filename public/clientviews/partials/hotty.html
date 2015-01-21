@@ -1,0 +1,28 @@
+<div class="container" ng-controller="appController">
+  <div class="row">
+    <div class="col-md-3 col-md-offset-3 thisIsImage">
+      <div class="img-container ">
+        <img ng-hide="hotty.photo == null" ng-src="data:{{hotty.img.contentType}};base64,{{hotty.photo}}" class="img-img img-rounded img-responsive">
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="form-group">
+        <h3>Hi, this is {{ hotty.username }}.</h3>
+      </div>
+      <div class="stats">
+        <dl class="padding-reset dl-horizontal">
+          <dt>About Me: </dt>
+            <dd><span ng-bind="hotty.aboutme" /></dd>
+          <dt>Gender: </dt>
+            <dd><span ng-bind="hotty.gender" /></dd>
+          <dt>Seeking: </dt>
+            <dd><span ng-bind="hotty.seeking" /></dd>
+          <dt>Birthday: </dt>
+            <dd><span ng-bind="hotty.birthday" /></dd>
+          <dt>Interests: </dt>
+            <dd ng-repeat="interest in hotty.interests" ng-repeat="interest"><span ng-bind="interest"></span></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>

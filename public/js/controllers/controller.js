@@ -1,5 +1,6 @@
 App.controller('appController', function($scope, Storage, $location, sharedProperties, $upload){
     $scope.user = sharedProperties.getProperty();
+    $scope.hotty = sharedProperties.getHotty();
     $scope.login = {};
 	$scope.browse = sharedProperties.getAll();	
     if((typeof $scope.user.chosen !== "undefined") && ($scope.user.chosen.length !== 0)){ 
@@ -112,4 +113,11 @@ App.controller('appController', function($scope, Storage, $location, sharedPrope
         }
     });
     // <--- END FILE UPLOAD
+
+    // CLICK IMAGE TO VIEW PROFILE FROM MAIN HTML && BOWERSE HTML 
+    $scope.viewHotty = function(hotty) {
+       sharedProperties.setHotty(hotty);
+       $location.path('/hotty');
+    }
 });
+
