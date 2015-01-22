@@ -85,6 +85,8 @@ module.exports = {
             if(err) {
                 console.log("update error");
             } else {
+                var photo = person.img.data.toString("base64");                         // convert img data to base64 which the broswer can read
+                person.photo = photo;                                                   // put the string in user.photo property for easy access
                 res.send(person);
             }
         })
